@@ -14,6 +14,7 @@ namespace eRestoran.WebAPI.Database
 		public string KorisnickoIme{ get; set; }
 		public string LozinkaHash{ get; set; }
 		public string LozinkaSalt{ get; set; }
-		
+
+		public virtual Uposlenik Uposlenik { get; set; }
 	}
 }

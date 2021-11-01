@@ -19,11 +19,18 @@ namespace eRestoran.WebAPI.Database
 		public DbSet<Narudzba> Narudzba { get; set; }
 		public DbSet<StavkeNarudzbe> StavkeNarudzbe { get; set; }
 		public DbSet<StatusNarudzbe> StatusNarudzbe { get; set; }
+		public DbSet<Korisnik> Korisnik { get; set; }
+		public DbSet<Uposlenik> Uposlenik { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 			//Example --> modelBuilder.Entity<Course>().ToTable("Course");
-		}
+			modelBuilder.Entity<Uposlenik>(entity =>
+			{
+				entity.HasOne(d => d.Korisnik)
+					.WithOne(d => d.Uposlenik);
+			});
+        }
 
 	}
 }

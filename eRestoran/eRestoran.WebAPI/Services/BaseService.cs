@@ -15,7 +15,7 @@ namespace eRestoran.WebAPI.Services
 		public BaseService(eRestoranContext context, IMapper mapper)
 		{
 			Context = context;
-			mapper = _mapper;
+			_mapper = mapper;
 		}
 		public virtual List<TModel> Get(TSearch search)
 		{

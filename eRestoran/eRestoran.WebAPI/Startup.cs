@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eRestoran.Model.Requests;
+using eRestoran.WebAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace eRestoran.WebAPI
@@ -28,8 +30,13 @@ namespace eRestoran.WebAPI
 		{
 			services.AddAutoMapper(typeof(Startup));
 
+			services.AddSwaggerGen();
+
 			services.AddDbContext<Database.eRestoranContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+			services.AddScoped<ICRUDService<Model.Jelo, JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>, JeloService>();
+			services.AddScoped<IBaseService<Model.Kategorija, KategorijaSearchRequest>, KategorijaService>();
 			
 			services.AddControllers();
 		}
@@ -51,6 +58,13 @@ namespace eRestoran.WebAPI
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
+			});
+
+			app.UseSwagger();
+
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Lyra API V1");
 			});
 		}
 	}
