@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace eRestoran.WebAPI.Database
+namespace eRestoran.Model
 {
 	public class StatusNarudzbe
 	{
