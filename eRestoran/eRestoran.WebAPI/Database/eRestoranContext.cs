@@ -21,6 +21,7 @@ namespace eRestoran.WebAPI.Database
 		public DbSet<StatusNarudzbe> StatusNarudzbe { get; set; }
 		public DbSet<Korisnik> Korisnik { get; set; }
 		public DbSet<Uposlenik> Uposlenik { get; set; }
+		public DbSet<Recenzija> Recenzija { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

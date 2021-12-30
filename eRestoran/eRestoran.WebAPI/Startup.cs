@@ -37,6 +37,9 @@ namespace eRestoran.WebAPI
 
 			services.AddScoped<ICRUDService<Model.Jelo, JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>, JeloService>();
 			services.AddScoped<IBaseService<Model.Kategorija, KategorijaSearchRequest>, KategorijaService>();
+			services.AddScoped<IBaseService<Model.StatusNarudzbe, StatusNarudzbeSearchRequest>, StatusNarudzbeService>();
+			services.AddScoped<ICRUDService<Model.Narudzba,NarudzbaSearchRequest, NarudzbaUpsertRequest, NarudzbaUpsertRequest>, NarudzbaService>();
+			services.AddScoped<ICRUDService<Model.StavkeNarudzbe,StavkeNarudzbeSearchRequest, StavkeNarudzbeUpsertRequest, StavkeNarudzbeUpsertRequest>, StavkeNarudzbeService>();
 			
 			services.AddControllers();
 		}
@@ -64,7 +67,7 @@ namespace eRestoran.WebAPI
 
 			app.UseSwaggerUI(c =>
 			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Lyra API V1");
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
 			});
 		}
 	}
