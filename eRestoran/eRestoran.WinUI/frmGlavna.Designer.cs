@@ -31,10 +31,10 @@ namespace eRestoran.WinUI
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.narudzbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.narudzbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +49,13 @@ namespace eRestoran.WinUI
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // narudzbeToolStripMenuItem
+            // 
+            this.narudzbeToolStripMenuItem.Name = "narudzbeToolStripMenuItem";
+            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(88, 26);
+            this.narudzbeToolStripMenuItem.Text = "Narudzbe";
+            this.narudzbeToolStripMenuItem.Click += new System.EventHandler(this.narudzbeToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -67,13 +74,6 @@ namespace eRestoran.WinUI
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // narudzbeToolStripMenuItem
-            // 
-            this.narudzbeToolStripMenuItem.Name = "narudzbeToolStripMenuItem";
-            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
-            this.narudzbeToolStripMenuItem.Text = "Narudzbe";
-            this.narudzbeToolStripMenuItem.Click += new System.EventHandler(this.narudzbeToolStripMenuItem_Click);
             // 
             // frmGlavna
             // 

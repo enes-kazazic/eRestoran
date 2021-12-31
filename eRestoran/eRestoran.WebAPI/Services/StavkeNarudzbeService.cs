@@ -24,11 +24,18 @@ namespace eRestoran.WebAPI.Services
         {
             var query = _context.StavkeNarudzbe.AsQueryable();
             
+            if (search.NarudzbaId != 0)
+            {
+                query = query.Where(x => x.NarudzbaId == search.NarudzbaId);
+            }
+            if (search.KorisnikId!= 0)
+            {
+                query = query.Where(x => x.Narudzba.KorisnikId == search.KorisnikId);
+            }
             if (search.JeloId != 0)
             {
                 query = query.Where(x => x.JeloId == search.JeloId);
             }
-
             var list = query.Include(x=>x.Jelo).ToList();
 
             var result = _mapper.Map<List<Model.StavkeNarudzbe>>(list);

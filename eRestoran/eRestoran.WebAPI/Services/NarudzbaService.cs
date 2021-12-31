@@ -20,9 +20,22 @@ namespace eRestoran.WebAPI.Services
             _mapper = mapper;
         }
 
+        public override Narudzba GetById(int id)
+        {
+            var result = _context.Narudzba.Include(x => x.Korisnik)
+                                            .Include(x => x.StatusNarudzbe)
+                                            .FirstOrDefault(x => x.Id == id);
+
+            return _mapper.Map<Narudzba>(result);
+        }
+
         public override List<Narudzba> Get(NarudzbaSearchRequest search)
         {
             var query = _context.Narudzba.AsQueryable();
+            if(search.Id != 0)
+            {
+                query = query.Where(x => x.Id == search.Id);
+            }
             if (search.DatumNarudzbe != null)
             {
                 query = query.Where(x => x.DatumNarudzbe.Date == search.DatumNarudzbe.Value.Date);
@@ -33,11 +46,11 @@ namespace eRestoran.WebAPI.Services
                 query = query.Where(x => x.StatusNarudzbeId == search.StatusNarudzbeId);
             }
 
-            if (search.KorisnikId != 0)
+            if(search.KorisnikId != 0)
             {
                 query = query.Where(x => x.KorisnikId == search.KorisnikId);
             }
-                
+
             var list = query.Include(x => x.Korisnik)
                             .Include(x => x.StatusNarudzbe)
                             .ToList();

@@ -37,22 +37,23 @@ namespace eRestoran.WinUI.Narudzbe
             this.lblDatumNarudzbe = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatusNarudzbe = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvJela = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ukupno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJela)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBrojNarudzbe
             // 
             this.lblBrojNarudzbe.AutoSize = true;
+            this.lblBrojNarudzbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBrojNarudzbe.Location = new System.Drawing.Point(12, 9);
             this.lblBrojNarudzbe.Name = "lblBrojNarudzbe";
-            this.lblBrojNarudzbe.Size = new System.Drawing.Size(91, 17);
+            this.lblBrojNarudzbe.Size = new System.Drawing.Size(103, 17);
             this.lblBrojNarudzbe.TabIndex = 0;
             this.lblBrojNarudzbe.Text = "Narudzba br.";
             // 
@@ -69,7 +70,7 @@ namespace eRestoran.WinUI.Narudzbe
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(100, 9);
+            this.label2.Location = new System.Drawing.Point(100, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 3;
@@ -119,29 +120,39 @@ namespace eRestoran.WinUI.Narudzbe
             this.lblStatusNarudzbe.Size = new System.Drawing.Size(0, 17);
             this.lblStatusNarudzbe.TabIndex = 8;
             // 
-            // dataGridView1
+            // dgvJela
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvJela.AllowUserToAddRows = false;
+            this.dgvJela.AllowUserToDeleteRows = false;
+            this.dgvJela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Naziv,
             this.Opis,
             this.Cijena,
             this.Kolicina,
             this.Ukupno});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(773, 316);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvJela.Location = new System.Drawing.Point(16, 122);
+            this.dgvJela.Name = "dgvJela";
+            this.dgvJela.ReadOnly = true;
+            this.dgvJela.RowHeadersWidth = 51;
+            this.dgvJela.RowTemplate.Height = 24;
+            this.dgvJela.Size = new System.Drawing.Size(773, 316);
+            this.dgvJela.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Lista jela:";
             // 
             // Naziv
             // 
             this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.DataPropertyName = "JeloNaziv";
             this.Naziv.HeaderText = "Naziv";
             this.Naziv.MinimumWidth = 6;
             this.Naziv.Name = "Naziv";
@@ -150,7 +161,7 @@ namespace eRestoran.WinUI.Narudzbe
             // Opis
             // 
             this.Opis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Opis.DataPropertyName = "Opis";
+            this.Opis.DataPropertyName = "JeloOpis";
             this.Opis.HeaderText = "Opis";
             this.Opis.MinimumWidth = 6;
             this.Opis.Name = "Opis";
@@ -183,23 +194,13 @@ namespace eRestoran.WinUI.Narudzbe
             this.Ukupno.Name = "Ukupno";
             this.Ukupno.ReadOnly = true;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Lista jela:";
-            // 
             // frmDetaljiNarudzbe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvJela);
             this.Controls.Add(this.lblStatusNarudzbe);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblDatumNarudzbe);
@@ -214,7 +215,7 @@ namespace eRestoran.WinUI.Narudzbe
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Detalj iNarudzbe";
             this.Load += new System.EventHandler(this.frmDetaljiNarudzbe_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +231,7 @@ namespace eRestoran.WinUI.Narudzbe
         private System.Windows.Forms.Label lblDatumNarudzbe;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblStatusNarudzbe;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvJela;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;

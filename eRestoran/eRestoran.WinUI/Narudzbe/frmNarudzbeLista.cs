@@ -67,5 +67,20 @@ namespace eRestoran.WinUI.Narudzbe
 
             await LoadNarudzbe(search);
         }
+
+        private void dgvNarudzbe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var narudzbaId = dgvNarudzbe.Rows[e.RowIndex].Cells[0].Value;
+            var korisnikId = dgvNarudzbe.Rows[e.RowIndex].Cells[1].Value;
+
+            if(dgvNarudzbe.Columns[e.ColumnIndex].Name == "Detalji")
+            {
+                if(int.TryParse(narudzbaId.ToString(),out int narudzba) && int.TryParse(korisnikId.ToString(), out int korisnik))
+                {
+                    frmDetaljiNarudzbe frm = new frmDetaljiNarudzbe(narudzba, korisnik);
+                    frm.Show();
+                }
+            }
+        }
     }
 }

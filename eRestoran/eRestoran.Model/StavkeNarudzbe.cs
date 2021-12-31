@@ -12,7 +12,11 @@ namespace eRestoran.Model
 
 		public int JeloId { get; set; }
 		public Jelo Jelo { get; set; }
+        public string JeloNaziv { get { return Jelo.Naziv; } }
+        public string JeloOpis { get { return Jelo.Opis; } }
 
-		public int NarudzbaId { get; set; }
-	}
+        public int NarudzbaId { get; set; }
+            
+        public int Ukupno { get { return Cijena * Kolicina; } }
+    }
 }

@@ -37,6 +37,7 @@ namespace eRestoran.WinUI.Narudzbe
             this.cmbStatusNaruzbe = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusNarudzbe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumNarudzbe = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +61,7 @@ namespace eRestoran.WinUI.Narudzbe
             this.dgvNarudzbe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNarudzbe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.KorisnikId,
             this.Korisnik,
             this.StatusNarudzbe,
             this.DatumNarudzbe,
@@ -79,6 +81,7 @@ namespace eRestoran.WinUI.Narudzbe
             this.dgvNarudzbe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNarudzbe.Size = new System.Drawing.Size(780, 349);
             this.dgvNarudzbe.TabIndex = 0;
+            this.dgvNarudzbe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarudzbe_CellContentClick);
             // 
             // dtpDatumNarudzbe
             // 
@@ -127,6 +130,15 @@ namespace eRestoran.WinUI.Narudzbe
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
+            // KorisnikId
+            // 
+            this.KorisnikId.DataPropertyName = "KorisnikId";
+            this.KorisnikId.HeaderText = "KorisnikId";
+            this.KorisnikId.MinimumWidth = 6;
+            this.KorisnikId.Name = "KorisnikId";
+            this.KorisnikId.ReadOnly = true;
+            this.KorisnikId.Visible = false;
+            // 
             // Korisnik
             // 
             this.Korisnik.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -172,6 +184,7 @@ namespace eRestoran.WinUI.Narudzbe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbStatusNaruzbe);
@@ -181,8 +194,11 @@ namespace eRestoran.WinUI.Narudzbe
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmNarudzbeLista";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lista narudzbi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmNarudzbeLista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarudzbe)).EndInit();
             this.ResumeLayout(false);
@@ -198,6 +214,7 @@ namespace eRestoran.WinUI.Narudzbe
         private System.Windows.Forms.ComboBox cmbStatusNaruzbe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Korisnik;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusNarudzbe;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumNarudzbe;
