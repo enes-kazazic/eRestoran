@@ -35,7 +35,7 @@ namespace eRestoran.WebAPI.Services
 				query = query.Where(x => x.Naziv.Contains(request.Naziv));
 			}
 
-			var list = query.ToList();
+			var list = query.Include(x=>x.Kategorija).ToList();
 
 			return _mapper.Map<List<Model.Jelo>>(list);
 		}

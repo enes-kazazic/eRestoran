@@ -79,6 +79,7 @@ namespace eRestoran.WinUI.Narudzbe
                 {
                     frmDetaljiNarudzbe frm = new frmDetaljiNarudzbe(narudzba, korisnik);
                     frm.Show();
+                    Close();
                 }
             }
         }

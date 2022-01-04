@@ -54,10 +54,17 @@ namespace eRestoran.WinUI.Narudzbe
             };
 
             var narudzba = await _narudzbe.Get<List<Narudzba>>(request);
-            lblBrojNarudzbe.Text += narudzba.First().Id.ToString();
+            lblBrojNarudzbe.Text = "Narudzba br. " + narudzba.First().Id.ToString();
             lblKlijentImePrezime.Text = narudzba.First().Korisnik;
             lblDatumNarudzbe.Text = narudzba.First().DatumNarudzbe.ToString("dd.MM.yyyy");
             lblStatusNarudzbe.Text = narudzba.First().StatusNarudzbe;
+        }
+
+        private async void btnPromijeniStatus_Click(object sender, EventArgs e)
+        {
+            var frm = new frmNarudzbaStatus(NarudzbaId);
+            frm.ShowDialog();
+            await LoadDetalji();
         }
     }
 }

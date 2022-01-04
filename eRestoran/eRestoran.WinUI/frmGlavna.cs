@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eRestoran.WinUI.Jela;
 using eRestoran.WinUI.Narudzbe;
 
 namespace eRestoran.WinUI
@@ -108,6 +109,13 @@ namespace eRestoran.WinUI
         private void narudzbeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNarudzbeLista frm = new frmNarudzbeLista();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void jeloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmJelaLista frm = new frmJelaLista();
             frm.MdiParent = this;
             frm.Show();
         }

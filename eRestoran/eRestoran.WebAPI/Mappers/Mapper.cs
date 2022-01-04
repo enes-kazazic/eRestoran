@@ -12,9 +12,10 @@ namespace eRestoran.WebAPI.Mappers
 	{
 		public Mapper()
 		{
-			CreateMap<Database.Jelo, Model.Jelo>();
+			CreateMap<Database.Jelo, Model.Jelo>()
+				.ForMember(x => x.Kategorija, db => db.MapFrom(src => src.Kategorija.Naziv));
 			CreateMap<JeloUpsertRequest, Database.Jelo>();
-			
+
 			CreateMap<Database.Kategorija, Model.Kategorija>();
 			CreateMap<KategorijaSearchRequest, Model.Kategorija>();
 			

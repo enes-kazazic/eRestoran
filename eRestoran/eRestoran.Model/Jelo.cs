@@ -11,5 +11,6 @@ namespace eRestoran.Model
 		public string Opis { get; set; }
 		public int Cijena { get; set; }
 		public int KategorijaId { get; set; }
-	}
+        public string Kategorija { get; set; }
+    }
 }

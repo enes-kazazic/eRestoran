@@ -32,16 +32,16 @@ namespace eRestoran.WinUI.Narudzbe
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvNarudzbe = new System.Windows.Forms.DataGridView();
-            this.dtpDatumNarudzbe = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbStatusNaruzbe = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusNarudzbe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumNarudzbe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detalji = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtpDatumNarudzbe = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbStatusNaruzbe = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarudzbe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@ namespace eRestoran.WinUI.Narudzbe
             // 
             this.dgvNarudzbe.AllowUserToAddRows = false;
             this.dgvNarudzbe.AllowUserToDeleteRows = false;
+            this.dgvNarudzbe.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvNarudzbe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -74,7 +75,7 @@ namespace eRestoran.WinUI.Narudzbe
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvNarudzbe.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvNarudzbe.Location = new System.Drawing.Point(12, 89);
+            this.dgvNarudzbe.Location = new System.Drawing.Point(12, 72);
             this.dgvNarudzbe.Name = "dgvNarudzbe";
             this.dgvNarudzbe.ReadOnly = true;
             this.dgvNarudzbe.RowHeadersWidth = 51;
@@ -82,43 +83,6 @@ namespace eRestoran.WinUI.Narudzbe
             this.dgvNarudzbe.Size = new System.Drawing.Size(780, 349);
             this.dgvNarudzbe.TabIndex = 0;
             this.dgvNarudzbe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarudzbe_CellContentClick);
-            // 
-            // dtpDatumNarudzbe
-            // 
-            this.dtpDatumNarudzbe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDatumNarudzbe.Location = new System.Drawing.Point(15, 51);
-            this.dtpDatumNarudzbe.Name = "dtpDatumNarudzbe";
-            this.dtpDatumNarudzbe.Size = new System.Drawing.Size(220, 22);
-            this.dtpDatumNarudzbe.TabIndex = 1;
-            this.dtpDatumNarudzbe.ValueChanged += new System.EventHandler(this.dtpDatumNarudzbe_ValueChangedAsync);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Datum narudzbe";
-            // 
-            // cmbStatusNaruzbe
-            // 
-            this.cmbStatusNaruzbe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatusNaruzbe.FormattingEnabled = true;
-            this.cmbStatusNaruzbe.Location = new System.Drawing.Point(286, 49);
-            this.cmbStatusNaruzbe.Name = "cmbStatusNaruzbe";
-            this.cmbStatusNaruzbe.Size = new System.Drawing.Size(148, 24);
-            this.cmbStatusNaruzbe.TabIndex = 3;
-            this.cmbStatusNaruzbe.SelectedIndexChanged += new System.EventHandler(this.cmbStatusNaruzbe_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Status narudzbe";
             // 
             // Id
             // 
@@ -179,6 +143,47 @@ namespace eRestoran.WinUI.Narudzbe
             this.Detalji.ReadOnly = true;
             this.Detalji.Text = "Detalji";
             this.Detalji.UseColumnTextForButtonValue = true;
+            // 
+            // dtpDatumNarudzbe
+            // 
+            this.dtpDatumNarudzbe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpDatumNarudzbe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDatumNarudzbe.Location = new System.Drawing.Point(15, 34);
+            this.dtpDatumNarudzbe.Name = "dtpDatumNarudzbe";
+            this.dtpDatumNarudzbe.Size = new System.Drawing.Size(220, 22);
+            this.dtpDatumNarudzbe.TabIndex = 1;
+            this.dtpDatumNarudzbe.ValueChanged += new System.EventHandler(this.dtpDatumNarudzbe_ValueChangedAsync);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Datum narudzbe";
+            // 
+            // cmbStatusNaruzbe
+            // 
+            this.cmbStatusNaruzbe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbStatusNaruzbe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatusNaruzbe.FormattingEnabled = true;
+            this.cmbStatusNaruzbe.Location = new System.Drawing.Point(286, 32);
+            this.cmbStatusNaruzbe.Name = "cmbStatusNaruzbe";
+            this.cmbStatusNaruzbe.Size = new System.Drawing.Size(148, 24);
+            this.cmbStatusNaruzbe.TabIndex = 3;
+            this.cmbStatusNaruzbe.SelectedIndexChanged += new System.EventHandler(this.cmbStatusNaruzbe_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(283, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Status narudzbe";
             // 
             // frmNarudzbeLista
             // 

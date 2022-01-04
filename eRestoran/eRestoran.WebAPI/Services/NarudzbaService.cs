@@ -62,12 +62,10 @@ namespace eRestoran.WebAPI.Services
         {
             var entity = Context.Narudzba.Find(id);
 
-            _context.Attach(request);
-
             entity.StatusNarudzbeId = request.StatusNarudzbeId;
             _context.SaveChanges();
 
-            return base.Update(id, request);
+            return _mapper.Map<Narudzba>(entity);
         }
     }
 }
