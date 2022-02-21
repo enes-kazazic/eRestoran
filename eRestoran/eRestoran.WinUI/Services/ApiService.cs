@@ -39,7 +39,7 @@ namespace eRestoran.WinUI.Services
             return result;
         }
 
-        public async Task<T> GetById<T>(int id)
+        public async Task<T> GetById<T>(object id)
         {
             var url = $"{endpoint}{_resource}/{id}";
             return await url.GetJsonAsync<T>();
@@ -88,6 +88,30 @@ namespace eRestoran.WinUI.Services
             //    MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return default(T);
             //}
+        }
+
+        public async Task<bool> Delete<T>(int id)
+        {
+            try
+            {
+                var url = $"{endpoint}{_resource}/{id}";
+
+
+                return await url.DeleteAsync().ReceiveJson<bool>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

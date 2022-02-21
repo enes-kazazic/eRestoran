@@ -8,7 +8,7 @@ namespace eRestoran.Model.Requests
 	{
 		public string Naziv { get; set; }
 		public string Opis { get; set; }
-		public int Cijena { get; set; }
+		public decimal Cijena { get; set; }
 		public int KategorijaId { get; set; }
 	}
 }

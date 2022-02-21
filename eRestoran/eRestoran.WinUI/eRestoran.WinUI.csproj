@@ -67,11 +67,23 @@
     <Compile Include="frmGlavna.Designer.cs">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jela\frmJelaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jela\frmJelaDodaj.Designer.cs">
+      <DependentUpon>frmJelaDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jela\frmJelaLista.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Jela\frmJelaLista.Designer.cs">
       <DependentUpon>frmJelaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jela\frmJelaUredi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jela\frmJelaUredi.Designer.cs">
+      <DependentUpon>frmJelaUredi.cs</DependentUpon>
     </Compile>
     <Compile Include="Narudzbe\frmDetaljiNarudzbe.cs">
       <SubType>Form</SubType>
@@ -97,8 +109,14 @@
     <EmbeddedResource Include="frmGlavna.resx">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Jela\frmJelaDodaj.resx">
+      <DependentUpon>frmJelaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Jela\frmJelaLista.resx">
       <DependentUpon>frmJelaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jela\frmJelaUredi.resx">
+      <DependentUpon>frmJelaUredi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Narudzbe\frmDetaljiNarudzbe.resx">
       <DependentUpon>frmDetaljiNarudzbe.cs</DependentUpon>

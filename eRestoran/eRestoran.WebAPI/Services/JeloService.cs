@@ -21,7 +21,14 @@ namespace eRestoran.WebAPI.Services
 
 		}
 
-		public override List<Model.Jelo> Get(JeloSearchRequest request)
+        public override Model.Jelo GetById(int id)
+        {
+			var jelo = _context.Jelo.Where(x => x.Id == id)
+									.Include(x => x.Kategorija);	
+            return base.GetById(id);
+        }
+
+        public override List<Model.Jelo> Get(JeloSearchRequest request)
 		{
 			var query = _context.Jelo.AsQueryable();
 

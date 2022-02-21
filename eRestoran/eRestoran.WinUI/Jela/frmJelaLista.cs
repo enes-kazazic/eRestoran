@@ -25,8 +25,8 @@ namespace eRestoran.WinUI.Jela
 
         private async void frmJelaLista_Load(object sender, EventArgs e)
         {
-           LoadKategorijeAsync();
-           await LoadJelaAsync();
+            await LoadKategorijeAsync();
+            await LoadJelaAsync();
         }
 
         private async Task LoadJelaAsync(JeloSearchRequest request = null)
@@ -71,6 +71,30 @@ namespace eRestoran.WinUI.Jela
             };
 
             await LoadJelaAsync(request);
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            frmJelaDodaj frm = new frmJelaDodaj();
+            frm.Show();
+        }
+
+        private async void dgvJela_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvJela.Columns[e.ColumnIndex].Name == "Uredi")
+            {
+                var jeloId = int.Parse(dgvJela.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                frmJelaUredi frm = new frmJelaUredi(jeloId);
+                if(frm.ShowDialog() == DialogResult.OK);
+                    await LoadJelaAsync();
+            }
+
+            if (dgvJela.Columns[e.ColumnIndex].Name == "Obrisi")
+            {
+                var id = int.Parse(dgvJela.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                await _jela.Delete<Jelo>(id);
+                await LoadJelaAsync();
+            }
         }
     }
 }
