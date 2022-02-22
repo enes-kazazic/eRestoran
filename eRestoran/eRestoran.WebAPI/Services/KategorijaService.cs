@@ -9,7 +9,7 @@ using Kategorija = eRestoran.Model.Kategorija;
 
 namespace eRestoran.WebAPI.Services
 {
-	public class KategorijaService:BaseService<Model.Kategorija, KategorijaSearchRequest, Database.Kategorija>
+	public class KategorijaService:CRUDService<Model.Kategorija, KategorijaSearchRequest, Database.Kategorija, KategorijaUpsertRequest, KategorijaUpsertRequest>
 	{
 		private readonly eRestoranContext _context;
 		private readonly IMapper _mapper;

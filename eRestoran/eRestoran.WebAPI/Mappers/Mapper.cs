@@ -18,6 +18,7 @@ namespace eRestoran.WebAPI.Mappers
 
 			CreateMap<Database.Kategorija, Model.Kategorija>();
 			CreateMap<KategorijaSearchRequest, Model.Kategorija>();
+			CreateMap<KategorijaUpsertRequest, Database.Kategorija>();
 			
 			CreateMap<Database.StatusNarudzbe, Model.StatusNarudzbe>();
 			CreateMap<StatusNarudzbeSearchRequest, Model.StatusNarudzbe>();

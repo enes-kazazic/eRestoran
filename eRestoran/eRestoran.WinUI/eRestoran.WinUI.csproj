@@ -85,6 +85,24 @@
     <Compile Include="Jela\frmJelaUredi.Designer.cs">
       <DependentUpon>frmJelaUredi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kategorije\frmKategorijeDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeDodaj.Designer.cs">
+      <DependentUpon>frmKategorijeDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeLista.Designer.cs">
+      <DependentUpon>frmKategorijeLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeUredi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorije\frmKategorijeUredi.Designer.cs">
+      <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Narudzbe\frmDetaljiNarudzbe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +135,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jela\frmJelaUredi.resx">
       <DependentUpon>frmJelaUredi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeDodaj.resx">
+      <DependentUpon>frmKategorijeDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeLista.resx">
+      <DependentUpon>frmKategorijeLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorije\frmKategorijeUredi.resx">
+      <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Narudzbe\frmDetaljiNarudzbe.resx">
       <DependentUpon>frmDetaljiNarudzbe.cs</DependentUpon>

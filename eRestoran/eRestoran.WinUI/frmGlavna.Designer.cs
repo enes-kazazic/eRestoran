@@ -32,10 +32,11 @@ namespace eRestoran.WinUI
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.narudzbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.jeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,8 @@ namespace eRestoran.WinUI
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.narudzbeToolStripMenuItem,
-            this.jeloToolStripMenuItem});
+            this.jeloToolStripMenuItem,
+            this.kategorijaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
@@ -58,6 +60,20 @@ namespace eRestoran.WinUI
             this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.narudzbeToolStripMenuItem.Text = "Narudzbe";
             this.narudzbeToolStripMenuItem.Click += new System.EventHandler(this.narudzbeToolStripMenuItem_Click);
+            // 
+            // jeloToolStripMenuItem
+            // 
+            this.jeloToolStripMenuItem.Name = "jeloToolStripMenuItem";
+            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.jeloToolStripMenuItem.Text = "Jelo";
+            this.jeloToolStripMenuItem.Click += new System.EventHandler(this.jeloToolStripMenuItem_Click);
+            // 
+            // kategorijaToolStripMenuItem
+            // 
+            this.kategorijaToolStripMenuItem.Name = "kategorijaToolStripMenuItem";
+            this.kategorijaToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.kategorijaToolStripMenuItem.Text = "Kategorija";
+            this.kategorijaToolStripMenuItem.Click += new System.EventHandler(this.kategorijaToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -76,13 +92,6 @@ namespace eRestoran.WinUI
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // jeloToolStripMenuItem
-            // 
-            this.jeloToolStripMenuItem.Name = "jeloToolStripMenuItem";
-            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.jeloToolStripMenuItem.Text = "Jelo";
-            this.jeloToolStripMenuItem.Click += new System.EventHandler(this.jeloToolStripMenuItem_Click);
             // 
             // frmGlavna
             // 
@@ -114,6 +123,7 @@ namespace eRestoran.WinUI
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem narudzbeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jeloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kategorijaToolStripMenuItem;
     }
 }
 

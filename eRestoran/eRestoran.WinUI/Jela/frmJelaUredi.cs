@@ -33,7 +33,7 @@ namespace eRestoran.WinUI.Jela
             LoadJelo(jelo);
         }
 
-        private async void LoadJelo(Jelo jelo)
+        private void LoadJelo(Jelo jelo)
         {
             txtNaziv.Text = jelo.Naziv;
             txtOpis.Text = jelo.Opis;

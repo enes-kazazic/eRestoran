@@ -11,9 +11,9 @@ namespace eRestoran.WebAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class KategorijaController:BaseController<Model.Kategorija, KategorijaSearchRequest>
+	public class KategorijaController:CRUDController<Model.Kategorija, KategorijaSearchRequest, KategorijaUpsertRequest, KategorijaUpsertRequest>
 	{
-		public KategorijaController(IBaseService<Kategorija, KategorijaSearchRequest> service) : base(service)
+		public KategorijaController(ICRUDService<Kategorija, KategorijaSearchRequest, KategorijaUpsertRequest, KategorijaUpsertRequest> service) : base(service)
 		{
 		}
 	}
