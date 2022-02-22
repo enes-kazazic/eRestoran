@@ -1,5 +1,6 @@
 ﻿using eRestoran.Model;
 using eRestoran.Model.Requests;
+using eRestoran.WinUI.Helpers;
 using eRestoran.WinUI.Services;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,9 @@ namespace eRestoran.WinUI.Jela
             txtNaziv.Text = jelo.Naziv;
             txtOpis.Text = jelo.Opis;
             txtCijena.Text = jelo.Cijena.ToString();
+
+            if (jelo.Slika.Length > 0)
+                pbSlika.Image = ImageHelper.ByteArrayToSystemDrawing(jelo.Slika);
         }
 
         private async void LoadKategorije(Jelo jelo)
@@ -60,7 +64,8 @@ namespace eRestoran.WinUI.Jela
                 Naziv = txtNaziv.Text,
                 Opis = txtOpis.Text,
                 Cijena = txtCijena.Value,
-                KategorijaId = int.Parse(cmbKategorije.SelectedValue.ToString())
+                KategorijaId = int.Parse(cmbKategorije.SelectedValue.ToString()),
+                Slika = ImageHelper.SystemDrawingToByteArray(pbSlika.Image)
             };
 
             await _jelo.Update<Jelo>(JeloId, request);
@@ -89,6 +94,16 @@ namespace eRestoran.WinUI.Jela
             }
 
             return true;
+        }
+
+        private void pbSlika_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pbSlika.Image = Image.FromFile(ofd.FileName);
+            }
         }
     }
 }

@@ -40,8 +40,10 @@ namespace eRestoran.WinUI.Jela
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.txtCijena = new System.Windows.Forms.NumericUpDown();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbSlika = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtCijena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSpremi
@@ -127,11 +129,23 @@ namespace eRestoran.WinUI.Jela
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // pbSlika
+            // 
+            this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbSlika.Location = new System.Drawing.Point(299, 49);
+            this.pbSlika.Name = "pbSlika";
+            this.pbSlika.Size = new System.Drawing.Size(183, 211);
+            this.pbSlika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSlika.TabIndex = 20;
+            this.pbSlika.TabStop = false;
+            this.pbSlika.Click += new System.EventHandler(this.pbSlika_Click);
+            // 
             // frmJelaUredi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 339);
+            this.ClientSize = new System.Drawing.Size(499, 339);
+            this.Controls.Add(this.pbSlika);
             this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.cmbKategorije);
@@ -147,6 +161,7 @@ namespace eRestoran.WinUI.Jela
             this.Load += new System.EventHandler(this.frmJelaUredi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtCijena)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +179,6 @@ namespace eRestoran.WinUI.Jela
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.NumericUpDown txtCijena;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pbSlika;
     }
 }

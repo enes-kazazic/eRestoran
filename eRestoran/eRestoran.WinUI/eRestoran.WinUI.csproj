@@ -67,6 +67,7 @@
     <Compile Include="frmGlavna.Designer.cs">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Jela\frmJelaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
