@@ -40,6 +40,7 @@ namespace eRestoran.WebAPI
 			services.AddScoped<IBaseService<Model.StatusNarudzbe, StatusNarudzbeSearchRequest>, StatusNarudzbeService>();
 			services.AddScoped<ICRUDService<Model.Narudzba,NarudzbaSearchRequest, NarudzbaUpsertRequest, NarudzbaUpsertRequest>, NarudzbaService>();
 			services.AddScoped<ICRUDService<Model.StavkeNarudzbe,StavkeNarudzbeSearchRequest, StavkeNarudzbeUpsertRequest, StavkeNarudzbeUpsertRequest>, StavkeNarudzbeService>();
+			services.AddScoped<ICRUDService<Model.Recenzija,object, RecenzijaUpsertRequest, RecenzijaUpsertRequest>, RecenzijaService>();
 			
 			services.AddControllers();
 		}
@@ -52,7 +53,7 @@ namespace eRestoran.WebAPI
 				app.UseDeveloperExceptionPage();
 			}
 
-			app.UseHttpsRedirection();
+			//app.UseHttpsRedirection();
 
 			app.UseRouting();
 

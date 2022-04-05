@@ -11,7 +11,9 @@ namespace eRestoran.WebAPI.Database
 	    public int Id { get; set; }
 	    public int Ocjena { get; set; }
 	    public string Opis { get; set; }
-	    public int KorisnikId { get; set; }
+        public int JeloId { get; set; }
+        public Jelo Jelo { get; set; }
+        public int KorisnikId { get; set; }
 	    public Korisnik Korisnik { get; set; }
     }
 }

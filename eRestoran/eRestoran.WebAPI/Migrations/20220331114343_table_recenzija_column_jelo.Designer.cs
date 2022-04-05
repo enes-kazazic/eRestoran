@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eRestoran.WebAPI.Database;
 
 namespace eRestoran.WebAPI.Migrations
 {
     [DbContext(typeof(eRestoranContext))]
-    partial class eRestoranContextModelSnapshot : ModelSnapshot
+    [Migration("20220331114343_table_recenzija_column_jelo")]
+    partial class table_recenzija_column_jelo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
