@@ -4,17 +4,20 @@ class Recenzija {
      final  int Ocjena; 
      final String  Opis;
      final int JeloId ;
+     final int KorisnikId;
 
   Recenzija({required this.Ocjena, 
            required this.Opis, 
-           required this.JeloId});
+           required this.JeloId,
+           required this.KorisnikId});
 
 
   factory Recenzija.fromJson(Map<String, dynamic> json) {
-    return Recenzija(
+    return Recenzija( 
         Ocjena: json["Ocjena"],
         Opis: json['Opis'],
         JeloId: json['JeloId'],
+        KorisnikId: json["KorisnikId"]
     );
   }
 
@@ -22,5 +25,6 @@ class Recenzija {
         "Ocjena": Ocjena,
         "Opis": Opis,
         "JeloId": JeloId,
+        "KorisnikId":KorisnikId
       };
 }

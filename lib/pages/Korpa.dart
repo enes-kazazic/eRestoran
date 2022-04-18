@@ -13,7 +13,7 @@ class _KorpaState extends State<Korpa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Jela'),
+        title: Text('Korpa'),
       ),
       body: bodyWidget(),
     );
