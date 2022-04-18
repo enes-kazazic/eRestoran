@@ -2,10 +2,7 @@
 
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:restoran_seminarski/models/Jelo.dart';
 import 'package:restoran_seminarski/models/Narudzba.dart';
 import 'package:restoran_seminarski/models/Recenzija.dart';
@@ -91,8 +88,6 @@ class _JelaState extends State<Jela> {
                     defaultIconData: Icons.star_border,
                     color: Colors.blue,
                     onRatingChanged: ((value) {
-                      //open rating page
-                      //send rating value
                       showModalBottomSheet(
                           isScrollControlled: true,
                           context: context,
@@ -169,14 +164,14 @@ class _JelaState extends State<Jela> {
 
   Widget recenzijaModal(Jelo, value) {
     var recenzijaOpisController = TextEditingController();
-
+    
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
           height: 400,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
+            child: Column(  
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -210,7 +205,17 @@ class _JelaState extends State<Jela> {
                 ),
                 TextButton(
                     onPressed: () async {
-                      
+                      var request = Recenzija(
+                        Ocjena: 2, 
+                        Opis: recenzijaOpisController.text,
+                        JeloId: Jelo.JeloId,
+                        KorisnikId: 1);
+
+                      await APIService.post("Recenzija", json.encode(request.toJson()));   
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Center(child: Text("Uspješno")),
+                        backgroundColor: Color.fromARGB(255, 9, 100, 13),
+                      ));
                       Navigator.pop(context);
                       setState(() {
                       });
