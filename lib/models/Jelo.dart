@@ -1,16 +1,13 @@
 import 'dart:convert';
 
 class Jelo {
-  bool show = false;
-  final JeloId;
+  final int JeloId;
   final String Naziv;
   final String Opis;
   final String Cijena;
   final List<int>? Slika;
 
-  Jelo(
-      {this.show = false,
-      required this.JeloId,
+  Jelo({required this.JeloId,
       required this.Naziv,
       required this.Opis,
       required this.Cijena,
@@ -18,8 +15,7 @@ class Jelo {
 
   factory Jelo.fromJson(Map<String, dynamic> json) {
     return Jelo(
-        show: json["show"],
-        JeloId: ["id"],
+        JeloId: json["id"],
         Naziv: json['naziv'],
         Opis: json['opis'],
         Cijena: json['cijena'].toString(),
