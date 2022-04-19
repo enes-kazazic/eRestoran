@@ -2,11 +2,13 @@
 
 import 'dart:convert';
 
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:restoran_seminarski/models/Jelo.dart';
 import 'package:restoran_seminarski/models/Narudzba.dart';
 import 'package:restoran_seminarski/models/Recenzija.dart';
 import 'package:restoran_seminarski/services/APIService.dart';
+import 'package:restoran_seminarski/services/CartService.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 
 class Jela extends StatefulWidget {
@@ -21,8 +23,20 @@ class _JelaState extends State<Jela> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Jela'),
-      ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            Text('Jela'),
+            Badge(
+              badgeContent: Text(CartService.products.length.toString(), 
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    )),
+              child: Icon(Icons.shopping_cart)
+            )
+          ])
+        ),
       body: bodyWidget(),
     );
   }
@@ -120,12 +134,14 @@ class _JelaState extends State<Jela> {
                 // ),
                 TextButton(
                     onPressed: () {
+                      CartService.addProduct(Jelo, 1);
                       setState(() {});
                     },
                     child: addWidget())
               ],
             ),
-          )),
+          )
+        ),
     );
   }
 

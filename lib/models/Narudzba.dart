@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class Narudzba {
-  final NarudzbaId;
+  late int? NarudzbaId;
   final DateTime DatumNarudzbe;
   final korisnikId;
   final statusNarudzbeId;
 
-  Narudzba({required this.NarudzbaId, 
+  Narudzba({this.NarudzbaId, 
            required this.DatumNarudzbe, 
            required this.korisnikId, 
            required this.statusNarudzbeId});
@@ -14,15 +14,15 @@ class Narudzba {
 
   factory Narudzba.fromJson(Map<String, dynamic> json) {
     return Narudzba(
-        NarudzbaId: ["id"],
-        DatumNarudzbe: json['DatumNarudzbe'],
+        NarudzbaId: json["id"],
+        DatumNarudzbe: DateTime.parse(json['DatumNarudzbe'].toString()),
         korisnikId: ['KorisnikId'],
         statusNarudzbeId: ['StatusNarudzbeId'],
     );
   }
   Map<String, dynamic> toJson() => {
         "NarudzbaId": NarudzbaId,
-        "DatumNarudzbe": DatumNarudzbe,
+        "DatumNarudzbe": DatumNarudzbe.toIso8601String(),
         "korisnikId": korisnikId,
         "statusNarudzbeId": statusNarudzbeId,
       };
