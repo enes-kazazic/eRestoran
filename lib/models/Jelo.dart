@@ -28,7 +28,7 @@ class Jelo {
         "Id": JeloId,
         "Naziv": Naziv,
         "Opis": Opis,
-        "Cijena": Cijena,
+        "Cijena": double.parse(Cijena),
         "Slika": Slika != null ? base64.encode(Slika!) : Slika,
       };
 }

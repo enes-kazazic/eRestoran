@@ -39,7 +39,6 @@ class APIService{
 
     // final String basicAuth =
     //     'Basic ' + base64Encode(utf8.encode('$korisnickoIme:$lozinka'));
-
     final response = await http.post(
       Uri.parse(baseUrl),
       headers: {
@@ -48,9 +47,10 @@ class APIService{
       },
       body: body,
     );
+
     print('Status code [POST] -> '+ response.statusCode.toString());
     if (response.statusCode == 200) {
-      return json.decode(response.body);
+      return json.decode(response.body.toString());
     } else {
       return null;
     }

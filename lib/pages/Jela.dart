@@ -27,13 +27,16 @@ class _JelaState extends State<Jela> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
             Text('Jela'),
-            Badge(
-              badgeContent: Text(CartService.products.length.toString(), 
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    )),
-              child: Icon(Icons.shopping_cart)
+            InkWell(
+              onTap: () => { Navigator.of(context).pushNamed('Korpa') },
+              child: Badge(
+                badgeContent: Text(CartService.products.length.toString(), 
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      )),
+                child: Icon(Icons.shopping_cart)
+              ),
             )
           ])
         ),
@@ -77,6 +80,10 @@ class _JelaState extends State<Jela> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // TextButton(onPressed: (){
+                //   print(("Cart values -> " + json.encode(CartService.products.values.map((e) => e.toJson()).toList().toString())));
+                //   print(("Cart keys -> " + CartService.products.keys.toString()));
+                // }, child: Text('TEST')),
                 Image(
                   height: 50,
                   width: 50,
@@ -133,7 +140,18 @@ class _JelaState extends State<Jela> {
                 //   ),
                 // ),
                 TextButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      if(CartService.NarudzbaId == null)
+                      {
+                        var narudzbaRequest = Narudzba(
+                          DatumNarudzbe: DateTime.now(),
+                          korisnikId: 1,
+                          statusNarudzbeId: 1);
+
+                        var result = await APIService.post("Narudzba", json.encode(narudzbaRequest.toJson()));
+                        CartService.NarudzbaId = result['id'];
+                      }
+                      
                       CartService.addProduct(Jelo, 1);
                       setState(() {});
                     },
