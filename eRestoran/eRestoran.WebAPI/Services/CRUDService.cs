@@ -31,6 +31,16 @@ namespace eRestoran.WebAPI.Services
 			return _mapper.Map<TModel>(entity);
 		}
 
+		public async virtual Task<List<TModel>> InsertAsync(List<TInsert> request)
+		{
+			var entity = _mapper.Map<List<TInsert>, List<TDatabase>>(request);
+
+			await _context.Set<TDatabase>().AddRangeAsync(entity);
+			await _context.SaveChangesAsync();
+
+			return _mapper.Map<List<TModel>>(entity);
+		}
+
 		public virtual TModel Update(int id, TUpdate request)
 		{
 			var entity = _context.Set<TDatabase>().Find(id);

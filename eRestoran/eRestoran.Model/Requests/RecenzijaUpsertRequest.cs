@@ -10,6 +10,6 @@ namespace eRestoran.Model.Requests
         public int Ocjena { get; set; }
         public string Opis { get; set; }
         public int JeloId { get; set; }
-        //public int KorisnikId { get; set; }
+        public int KorisnikId { get; set; }
     }
 }

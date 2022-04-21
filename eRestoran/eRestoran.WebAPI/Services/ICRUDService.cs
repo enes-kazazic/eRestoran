@@ -7,6 +7,8 @@ namespace eRestoran.WebAPI.Services
 {
 	public interface ICRUDService<T, TSearch, TInsert, TUpdate> : IBaseService<T, TSearch>
 	{
+		Task<List<T>> InsertAsync(List<TInsert> request);
+
 		T Insert(TInsert request);
 		T Update(int id, TUpdate request);
 		bool Delete(int id);

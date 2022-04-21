@@ -20,6 +20,13 @@ namespace eRestoran.WebAPI.Controllers
 		}
 
 		[HttpPost]
+		[Route("InsertAll")]
+		public Task<List<T>> InsertAll(List<TInsert> request)
+		{
+			return _service.InsertAsync(request);
+		}
+
+		[HttpPost]
 		public T Insert(TInsert request)
 		{
 			return _service.Insert(request);

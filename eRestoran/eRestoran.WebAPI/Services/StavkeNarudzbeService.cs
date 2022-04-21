@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eRestoran.Model.Requests;
 using eRestoran.WebAPI.Database;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,32 @@ namespace eRestoran.WebAPI.Services
 
             var result = _mapper.Map<List<Model.StavkeNarudzbe>>(list);
             return result;
+        }
+
+        [HttpPost]
+        public override async Task<List<Model.StavkeNarudzbe>> InsertAsync(List<StavkeNarudzbeUpsertRequest> request)
+        {
+            var result = request.Select(i => new StavkeNarudzbe
+            {
+                JeloId = i.Jelo.Id,
+                //Cijena = int.Parse(i.Jelo.Cijena.ToString()),
+                Kolicina = i.Kolicina,
+                NarudzbaId = i.NarudzbaId,
+            }).ToList();
+
+            await _context.StavkeNarudzbe.AddRangeAsync(result);
+            await _context.SaveChangesAsync();
+
+            var model = result.Select(i => new Model.StavkeNarudzbe
+            {
+                Id = i.Id,
+                NarudzbaId = i.NarudzbaId,
+                JeloId = i.JeloId,
+                Kolicina = i.Kolicina,
+                Cijena = i.Cijena,
+            }).ToList();
+
+            return model;
         }
     }
 }

@@ -12,8 +12,8 @@ namespace eRestoran.Model
 
 		public int JeloId { get; set; }
 		public Jelo Jelo { get; set; }
-        public string JeloNaziv { get { return Jelo.Naziv; } }
-        public string JeloOpis { get { return Jelo.Opis; } }
+        //public string JeloNaziv { get { return Jelo.Naziv; } }
+        //public string JeloOpis { get { return Jelo.Opis; } }
 
         public int NarudzbaId { get; set; }
             
