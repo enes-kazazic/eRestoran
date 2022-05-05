@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eRestoran.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eRestoran.WebAPI.Controllers
@@ -10,6 +11,7 @@ namespace eRestoran.WebAPI.Controllers
 
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class CRUDController<T,TSearch,TInsert,TUpdate> : BaseController<T, TSearch>
 	{
 		private readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service;

@@ -34,6 +34,7 @@ namespace eRestoran.WinUI
             this.narudzbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -47,62 +48,69 @@ namespace eRestoran.WinUI
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.narudzbeToolStripMenuItem,
             this.jeloToolStripMenuItem,
-            this.kategorijaToolStripMenuItem});
+            this.kategorijaToolStripMenuItem,
+            this.korisniciToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(632, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
             // narudzbeToolStripMenuItem
             // 
             this.narudzbeToolStripMenuItem.Name = "narudzbeToolStripMenuItem";
-            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.narudzbeToolStripMenuItem.Text = "Narudzbe";
             this.narudzbeToolStripMenuItem.Click += new System.EventHandler(this.narudzbeToolStripMenuItem_Click);
             // 
             // jeloToolStripMenuItem
             // 
             this.jeloToolStripMenuItem.Name = "jeloToolStripMenuItem";
-            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.jeloToolStripMenuItem.Text = "Jelo";
             this.jeloToolStripMenuItem.Click += new System.EventHandler(this.jeloToolStripMenuItem_Click);
             // 
             // kategorijaToolStripMenuItem
             // 
             this.kategorijaToolStripMenuItem.Name = "kategorijaToolStripMenuItem";
-            this.kategorijaToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.kategorijaToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.kategorijaToolStripMenuItem.Text = "Kategorija";
             this.kategorijaToolStripMenuItem.Click += new System.EventHandler(this.kategorijaToolStripMenuItem_Click);
+            // 
+            // korisniciToolStripMenuItem
+            // 
+            this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.korisniciToolStripMenuItem.Text = "Korisnici";
+            this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 532);
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(843, 26);
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
             // frmGlavna
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 558);
+            this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGlavna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGlavna";
@@ -124,6 +132,7 @@ namespace eRestoran.WinUI
         private System.Windows.Forms.ToolStripMenuItem narudzbeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jeloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kategorijaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
     }
 }
 

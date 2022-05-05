@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eRestoran.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eRestoran.WebAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class BaseController<T,TSearch> : ControllerBase
 	{
 		private readonly IBaseService<T, TSearch> _service;

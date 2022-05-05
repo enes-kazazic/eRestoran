@@ -61,11 +61,20 @@ namespace eRestoran.WinUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/.
+        ///   Looks up a localized string similar to https://localhost:5001/api/.
         /// </summary>
         internal static string ApiURL {
             get {
                 return ResourceManager.GetString("ApiURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/.
+        /// </summary>
+        internal static string LocalApiURL {
+            get {
+                return ResourceManager.GetString("LocalApiURL", resourceCulture);
             }
         }
     }

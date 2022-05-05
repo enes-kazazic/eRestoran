@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Windows.Forms;
 using eProdaja.Model;
 using eRestoran.WinUI.Properties;
@@ -18,9 +14,30 @@ namespace eRestoran.WinUI.Services
         private string _resource;
 	    public string endpoint = $"{Resources.ApiURL}";
 
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+        
         public ApiService(string resource)
         {
             _resource = resource;
+        }
+
+        public async Task<Model.Korisnik> Authenticate(string korisnickoIme, string lozinka)
+        {
+            try
+            {
+                var url = $"{endpoint}{_resource}/Authenticate";
+                return await url.WithBasicAuth(korisnickoIme, lozinka).GetJsonAsync<Model.Korisnik>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.StatusCode == 401)
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Došlo je do greške, pokušajte opet! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return default;
+            }
         }
 
         public async Task<T> Get<T>(object search = null)
@@ -34,7 +51,7 @@ namespace eRestoran.WinUI.Services
 
             }
 
-            var result = await url.GetJsonAsync<T>();
+            var result = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             return result;
         }
@@ -42,7 +59,7 @@ namespace eRestoran.WinUI.Services
         public async Task<T> GetById<T>(object id)
         {
             var url = $"{endpoint}{_resource}/{id}";
-            return await url.GetJsonAsync<T>();
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
         }
 
         public async Task<T> Insert<T>(object request)
@@ -51,7 +68,7 @@ namespace eRestoran.WinUI.Services
 
             try
             {
-                return await url.PostJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
@@ -73,7 +90,7 @@ namespace eRestoran.WinUI.Services
             //try
             //{
                 var url = $"{endpoint}{_resource}/{id}";
-                return await url.PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
             //}
             //catch (FlurlHttpException ex)
             //{
@@ -97,7 +114,7 @@ namespace eRestoran.WinUI.Services
                 var url = $"{endpoint}{_resource}/{id}";
 
 
-                return await url.DeleteAsync().ReceiveJson<bool>();
+                return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<bool>();
             }
             catch (FlurlHttpException ex)
             {

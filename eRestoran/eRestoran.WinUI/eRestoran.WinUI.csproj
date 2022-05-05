@@ -67,6 +67,12 @@
     <Compile Include="frmGlavna.Designer.cs">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Jela\frmJelaDodaj.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,12 @@
     <Compile Include="Kategorije\frmKategorijeUredi.Designer.cs">
       <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnici\frmKorisniciLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciLista.Designer.cs">
+      <DependentUpon>frmKorisniciLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Narudzbe\frmDetaljiNarudzbe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,9 @@
     <EmbeddedResource Include="frmGlavna.resx">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Jela\frmJelaDodaj.resx">
       <DependentUpon>frmJelaDodaj.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kategorije\frmKategorijeUredi.resx">
       <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmKorisniciLista.resx">
+      <DependentUpon>frmKorisniciLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Narudzbe\frmDetaljiNarudzbe.resx">
       <DependentUpon>frmDetaljiNarudzbe.cs</DependentUpon>

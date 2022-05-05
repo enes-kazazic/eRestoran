@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using eRestoran.WinUI.Jela;
 using eRestoran.WinUI.Kategorije;
+using eRestoran.WinUI.Korisnici;
 using eRestoran.WinUI.Narudzbe;
 
 namespace eRestoran.WinUI
@@ -124,6 +125,13 @@ namespace eRestoran.WinUI
         private void kategorijaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKategorijeLista frm = new frmKategorijeLista();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void korisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKorisniciLista frm = new frmKorisniciLista();
             frm.MdiParent = this;
             frm.Show();
         }

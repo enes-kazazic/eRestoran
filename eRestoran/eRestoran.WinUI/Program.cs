@@ -16,7 +16,7 @@ namespace eRestoran.WinUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmGlavna());
+			Application.Run(new frmLogin());
 		}
 	}
 }
