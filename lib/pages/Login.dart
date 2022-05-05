@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restoran_seminarski/models/Korisnik.dart';
 import 'package:restoran_seminarski/services/APIService.dart';
 
 class Login extends StatefulWidget {
@@ -6,6 +7,12 @@ class Login extends StatefulWidget {
 
   @override
   _LoginState createState() => _LoginState();
+}
+
+Korisnik? result;
+
+Future<void> GetData() async {
+  result = await APIService.prijava();
 }
 
 class _LoginState extends State<Login> {
@@ -24,11 +31,8 @@ class _LoginState extends State<Login> {
                   controller: usernameController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)
-                      ),
-                      hintText: 'Korisnicko ime'
-                  )
-              ),
+                          borderRadius: BorderRadius.circular(20)),
+                      hintText: 'Korisnicko ime')),
               SizedBox(
                 height: 20,
               ),
@@ -36,11 +40,8 @@ class _LoginState extends State<Login> {
                   controller: passwordController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)
-                      ),
-                      hintText: 'Password'
-                  )
-              ),
+                          borderRadius: BorderRadius.circular(20)),
+                      hintText: 'Password')),
               SizedBox(
                 height: 20,
               ),
@@ -48,15 +49,20 @@ class _LoginState extends State<Login> {
                 height: 50,
                 width: 250,
                 decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(20)
-                ),
-                child: TextButton(onPressed: () async{
-                  //APIService.username=usernameController.text;
-                  //APIService.password=passwordController.text;
-                  //APIService.get('Login');
-                },
-                  child: Text('Login',style: TextStyle(color: Colors.white, fontSize: 20)),
+                    color: Colors.red, borderRadius: BorderRadius.circular(20)),
+                child: TextButton(
+                  onPressed: () async {
+                    APIService.username = usernameController.text;
+                    APIService.password = passwordController.text;
+                    await GetData();
+                    if (result != null) {
+                      print(result);
+                      APIService.korisnikId = result!.KorisnikId;
+                      Navigator.of(context).pushReplacementNamed('Home');
+                    }
+                  },
+                  child: Text('Login',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               )
             ],

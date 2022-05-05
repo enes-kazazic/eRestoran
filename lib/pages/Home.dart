@@ -23,20 +23,28 @@ class _HomeState extends State<Home> {
                 title: const Text("Meni"),
                 centerTitle: true,
               ),
-              // const Divider(),
-              // ListTile(
-              //   leading: const Icon(Icons.home),
-              //   title: const Text("Pocetna"),
-              //   onTap: () {
-              //     Navigator.of(context).pushReplacementNamed('/pocetna');
-              //   },
-              // ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text("Pocetna"),
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/pocetna');
+                },
+              ),
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.fastfood),
                 title: const Text("Jela"),
                 onTap: () {
                   Navigator.of(context).pushNamed('Jela');
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.delivery_dining_outlined),
+                title: const Text("Moje narudzbe"),
+                onTap: () {
+                  Navigator.of(context).pushNamed('Narudzbe');
                 },
               ),
               const Divider(),
