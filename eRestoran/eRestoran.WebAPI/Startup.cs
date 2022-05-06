@@ -58,7 +58,8 @@ namespace eRestoran.WebAPI
             services.AddDbContext<Database.eRestoranContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<ICRUDService<Model.Jelo, JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>, JeloService>();
+            //services.AddScoped<ICRUDService<Model.Jelo, JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>, JeloService>();
+            services.AddScoped<IJeloService, JeloService>();
             services.AddScoped<ICRUDService<Model.Kategorija, KategorijaSearchRequest, KategorijaUpsertRequest, KategorijaUpsertRequest>, KategorijaService>();
             services.AddScoped<IBaseService<Model.StatusNarudzbe, StatusNarudzbeSearchRequest>, StatusNarudzbeService>();
             services.AddScoped<ICRUDService<Model.Narudzba, NarudzbaSearchRequest, NarudzbaUpsertRequest, NarudzbaUpsertRequest>, NarudzbaService>();

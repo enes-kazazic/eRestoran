@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using eRestoran.Model;
 using eRestoran.Model.Requests;
 using eRestoran.WebAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eRestoran.WebAPI.Controllers
 {
@@ -13,8 +14,18 @@ namespace eRestoran.WebAPI.Controllers
 	[ApiController]
 	public class JeloController : CRUDController<Model.Jelo,JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>
 	{
-		public JeloController(ICRUDService<Jelo, JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest> service) : base(service)
+		protected new readonly IJeloService _service;
+
+		public JeloController(IJeloService service) : base(service)
 		{
+			_service = service;
+		}
+
+		[Authorize]
+		[HttpGet("preporuceno/{korisnikId}")]
+		public List<Model.Jelo> GetPreporucenaJela(int korisnikId)
+		{
+			return _service.GetPreporucenaJela(korisnikId);
 		}
 	}
 }
