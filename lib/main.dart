@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:restoran_seminarski/pages/Korpa.dart';
 import 'package:restoran_seminarski/pages/Login.dart';
 import 'package:restoran_seminarski/pages/Home.dart';
@@ -6,6 +7,7 @@ import 'package:restoran_seminarski/pages/Test.dart';
 import 'package:restoran_seminarski/pages/Jela.dart';
 
 void main() {
+  Stripe.publishableKey="pk_test_51Kw3twKAtqE1XPaPXoIuYPB5pCRHpiLr7Dfkhl3fDIP9vH4fUQqEYMtwgdqAvH1l3BjAu0a5HEgSlUkksSiYwoPC00s8OhYRW1";
   runApp(MyApp());
 }
 

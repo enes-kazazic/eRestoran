@@ -4,6 +4,7 @@ import 'package:restoran_seminarski/models/CartModel.dart';
 import 'package:restoran_seminarski/models/Jelo.dart';
 import 'package:restoran_seminarski/models/Narudzba.dart';
 import 'package:restoran_seminarski/models/NarudzbaStavke.dart';
+import 'package:restoran_seminarski/pages/Checkout.dart';
 import 'package:restoran_seminarski/services/APIService.dart';
 import 'package:restoran_seminarski/services/CartService.dart';
 
@@ -35,19 +36,20 @@ class _KorpaState extends State<Korpa> {
           padding: const EdgeInsets.all(8.0),
           child: CartService.products.isNotEmpty ? ElevatedButton(
             onPressed: () async {
-                await APIService.post("StavkeNarudzbe/InsertAll", json.encode(CartService.products.values.map((e) => e.toJson()).toList()));
-                setState(() {
-                  CartService.clear();
-                  Navigator.of(context).pop();
-                });
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> Checkout(double.parse(CartService.Ukupno.toString()))));
+                // await APIService.post("StavkeNarudzbe/InsertAll", json.encode(CartService.products.values.map((e) => e.toJson()).toList()));
+                // setState(() {
+                //   CartService.clear();
+                //   Navigator.of(context).pop();
+                // });
                 // print("Stavke narudzbe ->" + narudzbaStavkeRequest.toString());
               }, 
             style: ElevatedButton.styleFrom(
               primary: const Color.fromARGB(200, 239, 108, 0),
               minimumSize: const Size.fromHeight(50)
             ),
-            child: const Text(
-              'Naruči',
+            child: Text(
+              'Nastavi na placanje (' + CartService.Ukupno.toString() + " KM) ->",
               style: TextStyle(fontSize: 20)
               )
             )  : Container(
@@ -140,7 +142,7 @@ class _KorpaState extends State<Korpa> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: Text(cart.proizvod.Cijena + '0 KM',
+                      child: Text(cart.proizvod.Cijena.toString() + '0 KM',
                           style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20,

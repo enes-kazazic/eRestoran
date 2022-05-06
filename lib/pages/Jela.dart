@@ -180,7 +180,7 @@ class _JelaState extends State<Jela> {
             ]),
             Padding(
               padding: EdgeInsets.all(20),
-              child: Text(Jelo.Cijena + '0 KM',
+              child: Text(Jelo.Cijena.toString() + '0 KM',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -287,7 +287,7 @@ class _JelaState extends State<Jela> {
                 TextButton(
                     onPressed: () async {
                       var request = Recenzija(
-                        Ocjena: 2, 
+                        Ocjena: value.toInt(), 
                         Opis: recenzijaOpisController.text,
                         JeloId: Jelo.JeloId,
                         KorisnikId: APIService.korisnikId!);

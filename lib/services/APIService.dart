@@ -38,15 +38,22 @@ class APIService {
     return null;
   }
 
-  static Future<List<dynamic>?> Get(String route, dynamic object) async {
-    String queryString = Uri(queryParameters: object).query;
+  static Future<List<dynamic>?> Get(String route, dynamic? object) async {
+    String queryString;
     String baseUrl = baseRoute + route;
     //String baseUrl="http://127.0.0.1:5001/api/"+route;
     //String baseUrl="http://10.0x.17.61:55891/api/"+route;
 
     if (object != null) {
-      baseUrl = baseUrl + '?' + queryString;
+      if(object is int){
+        	baseUrl = baseUrl + '/' + object.toString();
+      }
+      else{
+          queryString = Uri(queryParameters: object).query;
+        	baseUrl = baseUrl + '?' + queryString;
+      }
     }
+
 
     final String basicAuth='Basic '+base64Encode(utf8.encode('$username:$password'));
     final response = await http.get(

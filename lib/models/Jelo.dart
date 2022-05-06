@@ -4,7 +4,7 @@ class Jelo {
   final int JeloId;
   final String Naziv;
   final String Opis;
-  final String Cijena;
+  final double Cijena;
   final List<int>? Slika;
 
   Jelo({required this.JeloId,
@@ -18,7 +18,7 @@ class Jelo {
         JeloId: json["id"],
         Naziv: json['naziv'],
         Opis: json['opis'],
-        Cijena: json['cijena'].toString(),
+        Cijena: json['cijena'],
         Slika: json["slika"] != null
             ? base64.decode(json['slika'] as String)
             : null);
@@ -28,7 +28,7 @@ class Jelo {
         "Id": JeloId,
         "Naziv": Naziv,
         "Opis": Opis,
-        "Cijena": double.parse(Cijena),
+        "Cijena": Cijena,
         "Slika": Slika != null ? base64.encode(Slika!) : Slika,
       };
 }

@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
                 leading: const Icon(Icons.home),
                 title: const Text("Pocetna"),
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/pocetna');
+                  Navigator.of(context).pushReplacementNamed('Home');
                 },
               ),
               const Divider(),

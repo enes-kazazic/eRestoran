@@ -5,9 +5,10 @@ import 'package:restoran_seminarski/models/Jelo.dart';
 class CartService{
   static Map<String, CartModel> products= <String, CartModel>{};
   static int? NarudzbaId;
+  static int Ukupno = 0;
 
+  int? get ukupno{ return Ukupno; }
   int? get narudzbaId{ return NarudzbaId; }
-
   void set narudzbaId(int? value){ NarudzbaId = value; }
 
   static void removeProduct(String id){
@@ -30,16 +31,19 @@ class CartService{
       products.update('${jelo.JeloId}', (value) => cm!);
       print(cm?.kolicina);  
     }
+    Ukupno += cm.proizvod.Cijena.round();
   }
 
   static void decreaseQuantity(Jelo jelo){
     var product = products['${jelo.JeloId}'];
     product?.kolicina-=1;
     products.update('${jelo.JeloId}', (value) => product!);
+    Ukupno -= jelo.Cijena.round();
   }
 
   static void clear(){
     CartService.products.clear();
     CartService.NarudzbaId = null;
+    CartService.Ukupno = 0;
   }
 }
