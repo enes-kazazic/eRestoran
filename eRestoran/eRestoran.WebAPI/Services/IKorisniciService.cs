@@ -14,9 +14,9 @@ namespace eRestoran.WebAPI.Services
 
         Model.Korisnik GetById(int id);
 
-        Model.Korisnik Insert(KorisnikUpsertRequest korisnici);
+        Task<Model.Korisnik> InsertAsync(KorisnikUpsertRequest korisnici);
 
-        Model.Korisnik Update(int id, KorisnikUpsertRequest korisnici);
+        Task<Model.Korisnik> UpdateAsync(int id, KorisnikUpsertRequest korisnici);
 
         Task<Model.Korisnik> Login(string username, string password);
     }

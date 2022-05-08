@@ -32,12 +32,14 @@ namespace eRestoran.WinUI.Korisnici
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
-            this.txtImePrezime = new System.Windows.Forms.TextBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Obrisi = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtImePrezime = new System.Windows.Forms.TextBox();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,22 +72,15 @@ namespace eRestoran.WinUI.Korisnici
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKorisnici.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvKorisnici.Location = new System.Drawing.Point(11, 65);
-            this.dgvKorisnici.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvKorisnici.Location = new System.Drawing.Point(15, 69);
+            this.dgvKorisnici.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKorisnici.Name = "dgvKorisnici";
             this.dgvKorisnici.RowHeadersWidth = 51;
             this.dgvKorisnici.RowTemplate.Height = 24;
             this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKorisnici.Size = new System.Drawing.Size(588, 275);
+            this.dgvKorisnici.Size = new System.Drawing.Size(784, 345);
             this.dgvKorisnici.TabIndex = 1;
-            // 
-            // txtImePrezime
-            // 
-            this.txtImePrezime.Location = new System.Drawing.Point(11, 23);
-            this.txtImePrezime.Name = "txtImePrezime";
-            this.txtImePrezime.Size = new System.Drawing.Size(214, 20);
-            this.txtImePrezime.TabIndex = 2;
-            this.txtImePrezime.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
             // 
             // Id
             // 
@@ -98,12 +93,14 @@ namespace eRestoran.WinUI.Korisnici
             // 
             this.Ime.DataPropertyName = "Ime";
             this.Ime.HeaderText = "Ime";
+            this.Ime.MinimumWidth = 6;
             this.Ime.Name = "Ime";
             // 
             // Prezime
             // 
             this.Prezime.DataPropertyName = "Prezime";
             this.Prezime.HeaderText = "Prezime";
+            this.Prezime.MinimumWidth = 6;
             this.Prezime.Name = "Prezime";
             // 
             // Uredi
@@ -122,15 +119,51 @@ namespace eRestoran.WinUI.Korisnici
             this.Obrisi.Text = "Obrisi";
             this.Obrisi.UseColumnTextForButtonValue = true;
             // 
+            // txtImePrezime
+            // 
+            this.txtImePrezime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtImePrezime.Location = new System.Drawing.Point(15, 28);
+            this.txtImePrezime.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImePrezime.Name = "txtImePrezime";
+            this.txtImePrezime.Size = new System.Drawing.Size(284, 22);
+            this.txtImePrezime.TabIndex = 2;
+            this.txtImePrezime.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDodaj.Location = new System.Drawing.Point(707, 21);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(94, 30);
+            this.btnDodaj.TabIndex = 6;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ime i prezime:";
+            // 
             // frmKorisniciLista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 351);
+            this.ClientSize = new System.Drawing.Size(813, 435);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.txtImePrezime);
             this.Controls.Add(this.dgvKorisnici);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKorisniciLista";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmKorisniciLista";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmKorisniciLista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
             this.ResumeLayout(false);
@@ -147,5 +180,7 @@ namespace eRestoran.WinUI.Korisnici
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
         private System.Windows.Forms.DataGridViewButtonColumn Uredi;
         private System.Windows.Forms.DataGridViewButtonColumn Obrisi;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Label label1;
     }
 }

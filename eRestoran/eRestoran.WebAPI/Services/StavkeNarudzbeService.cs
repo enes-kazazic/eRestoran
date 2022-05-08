@@ -49,7 +49,7 @@ namespace eRestoran.WebAPI.Services
             var result = request.Select(i => new StavkeNarudzbe
             {
                 JeloId = i.Jelo.Id,
-                //Cijena = int.Parse(i.Jelo.Cijena.ToString()),
+                Cijena = i.Cijena,
                 Kolicina = i.Kolicina,
                 NarudzbaId = i.NarudzbaId,
             }).ToList();

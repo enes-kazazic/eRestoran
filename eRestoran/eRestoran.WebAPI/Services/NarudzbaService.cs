@@ -58,13 +58,12 @@ namespace eRestoran.WebAPI.Services
             return _mapper.Map<List<Model.Narudzba>>(list);
         }
 
-        public override Narudzba Update(int id, NarudzbaUpsertRequest request)
+        public override async Task<Narudzba> UpdateAsync(int id, NarudzbaUpsertRequest request)
         {
             var entity = Context.Narudzba.Find(id);
-
             entity.StatusNarudzbeId = request.StatusNarudzbeId;
-            _context.SaveChanges();
 
+            await _context.SaveChangesAsync();
             return _mapper.Map<Narudzba>(entity);
         }
     }

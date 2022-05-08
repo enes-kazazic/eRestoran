@@ -29,15 +29,15 @@ namespace eRestoran.WebAPI.Controllers
 		}
 
 		[HttpPost]
-		public T Insert(TInsert request)
+		public async Task<T> InsertAsync(TInsert request)
 		{
-			return _service.Insert(request);
+			return await _service.InsertAsync(request);
 		}
 
 		[HttpPut("{id}")]
-		public T Update(int id, [FromBody]TUpdate request)
+		public async Task<T> UpdateAsync(int id, [FromBody]TUpdate request)
 		{
-			return _service.Update(id ,request);
+			return await _service.UpdateAsync(id ,request);
 		}
 
 		[HttpDelete("{id}")]

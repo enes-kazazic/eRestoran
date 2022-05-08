@@ -78,8 +78,7 @@ namespace eRestoran.WinUI.Narudzbe
                 if(int.TryParse(narudzbaId.ToString(),out int narudzba) && int.TryParse(korisnikId.ToString(), out int korisnik))
                 {
                     frmDetaljiNarudzbe frm = new frmDetaljiNarudzbe(narudzba, korisnik);
-                    frm.Show();
-                    Close();
+                    frm.ShowDialog();
                 }
             }
         }

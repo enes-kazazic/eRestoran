@@ -41,5 +41,11 @@ namespace eRestoran.WinUI
 
             Cursor = Cursors.Default;
         }
+
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnPrijava_Click(sender, e);
+        }
     }
 }

@@ -49,7 +49,7 @@ namespace eRestoran.WinUI.Jela
             // txtNaziv
             // 
             this.txtNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNaziv.Location = new System.Drawing.Point(48, 49);
+            this.txtNaziv.Location = new System.Drawing.Point(30, 50);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(218, 26);
             this.txtNaziv.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace eRestoran.WinUI.Jela
             // txtOpis
             // 
             this.txtOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOpis.Location = new System.Drawing.Point(48, 107);
+            this.txtOpis.Location = new System.Drawing.Point(30, 108);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(218, 26);
             this.txtOpis.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace eRestoran.WinUI.Jela
             // lblNaziv
             // 
             this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(45, 26);
+            this.lblNaziv.Location = new System.Drawing.Point(27, 27);
             this.lblNaziv.Name = "lblNaziv";
             this.lblNaziv.Size = new System.Drawing.Size(47, 17);
             this.lblNaziv.TabIndex = 4;
@@ -74,7 +74,7 @@ namespace eRestoran.WinUI.Jela
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 87);
+            this.label2.Location = new System.Drawing.Point(27, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 5;
@@ -83,7 +83,7 @@ namespace eRestoran.WinUI.Jela
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 149);
+            this.label3.Location = new System.Drawing.Point(27, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 6;
@@ -92,7 +92,7 @@ namespace eRestoran.WinUI.Jela
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 208);
+            this.label4.Location = new System.Drawing.Point(27, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 17);
             this.label4.TabIndex = 7;
@@ -103,14 +103,14 @@ namespace eRestoran.WinUI.Jela
             this.cmbKategorije.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorije.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorije.FormattingEnabled = true;
-            this.cmbKategorije.Location = new System.Drawing.Point(48, 228);
+            this.cmbKategorije.Location = new System.Drawing.Point(30, 229);
             this.cmbKategorije.Name = "cmbKategorije";
             this.cmbKategorije.Size = new System.Drawing.Size(218, 28);
             this.cmbKategorije.TabIndex = 8;
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Location = new System.Drawing.Point(191, 276);
+            this.btnSpremi.Location = new System.Drawing.Point(173, 277);
             this.btnSpremi.Name = "btnSpremi";
             this.btnSpremi.Size = new System.Drawing.Size(75, 35);
             this.btnSpremi.TabIndex = 9;
@@ -124,7 +124,7 @@ namespace eRestoran.WinUI.Jela
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(48, 169);
+            this.txtCijena.Location = new System.Drawing.Point(30, 170);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(218, 22);
             this.txtCijena.TabIndex = 10;
@@ -132,7 +132,7 @@ namespace eRestoran.WinUI.Jela
             // pbSlika
             // 
             this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbSlika.Location = new System.Drawing.Point(305, 49);
+            this.pbSlika.Location = new System.Drawing.Point(287, 50);
             this.pbSlika.Name = "pbSlika";
             this.pbSlika.Size = new System.Drawing.Size(183, 211);
             this.pbSlika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

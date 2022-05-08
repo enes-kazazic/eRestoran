@@ -39,8 +39,8 @@ namespace eRestoran.WebAPI.Mappers
 			CreateMap<RecenzijaUpsertRequest, Database.Recenzija>();
 
 			CreateMap<Database.Korisnik, Model.Korisnik>();
-
-			
+			CreateMap<Database.Uposlenik, Model.Uposlenik>();
+			CreateMap<KorisnikUpsertRequest, Database.Korisnik>();
 		}
 	}
 }

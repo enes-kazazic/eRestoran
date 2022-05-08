@@ -110,11 +110,23 @@
     <Compile Include="Kategorije\frmKategorijeUredi.Designer.cs">
       <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnici\frmKorisniciDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciDodaj.Designer.cs">
+      <DependentUpon>frmKorisniciDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Korisnici\frmKorisniciLista.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Korisnici\frmKorisniciLista.Designer.cs">
       <DependentUpon>frmKorisniciLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciUredi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Korisnici\frmKorisniciUredi.Designer.cs">
+      <DependentUpon>frmKorisniciUredi.cs</DependentUpon>
     </Compile>
     <Compile Include="Narudzbe\frmDetaljiNarudzbe.cs">
       <SubType>Form</SubType>
@@ -161,8 +173,14 @@
     <EmbeddedResource Include="Kategorije\frmKategorijeUredi.resx">
       <DependentUpon>frmKategorijeUredi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmKorisniciDodaj.resx">
+      <DependentUpon>frmKorisniciDodaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Korisnici\frmKorisniciLista.resx">
       <DependentUpon>frmKorisniciLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Korisnici\frmKorisniciUredi.resx">
+      <DependentUpon>frmKorisniciUredi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Narudzbe\frmDetaljiNarudzbe.resx">
       <DependentUpon>frmDetaljiNarudzbe.cs</DependentUpon>

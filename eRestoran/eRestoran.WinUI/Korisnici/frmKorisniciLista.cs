@@ -43,5 +43,30 @@ namespace eRestoran.WinUI.Korisnici
 
             await LoadKorisniciAsync(request);
         }
+
+        private async void btnDodaj_Click(object sender, EventArgs e)
+        {
+            frmKorisniciDodaj frm = new frmKorisniciDodaj();
+            if (frm.ShowDialog() == DialogResult.OK)
+               await LoadKorisniciAsync();
+        }
+
+        private async void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvKorisnici.Columns[e.ColumnIndex].Name == "Uredi")
+            {
+                var korisnikId = int.Parse(dgvKorisnici.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                frmKorisniciUredi frm = new frmKorisniciUredi(korisnikId);
+                if (frm.ShowDialog() == DialogResult.OK) ;
+                await LoadKorisniciAsync();
+            }
+
+            if (dgvKorisnici.Columns[e.ColumnIndex].Name == "Obrisi")
+            {
+                var id = int.Parse(dgvKorisnici.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                await _korisnici.Delete<Korisnik>(id);
+                await LoadKorisniciAsync();
+            }
+        }
     }
 }

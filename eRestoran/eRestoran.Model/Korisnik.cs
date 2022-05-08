@@ -14,5 +14,6 @@ namespace eRestoran.Model
 		public string KorisnickoIme { get; set; }
 		public string LozinkaHash { get; set; }
 		public string LozinkaSalt { get; set; }
+		public Uposlenik Uposlenik { get; set; }
 	}
 }

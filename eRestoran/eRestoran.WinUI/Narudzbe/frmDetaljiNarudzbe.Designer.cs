@@ -38,13 +38,13 @@ namespace eRestoran.WinUI.Narudzbe
             this.label5 = new System.Windows.Forms.Label();
             this.lblStatusNarudzbe = new System.Windows.Forms.Label();
             this.dgvJela = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnPromijeniStatus = new System.Windows.Forms.Button();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ukupno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnPromijeniStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,11 +139,32 @@ namespace eRestoran.WinUI.Narudzbe
             this.dgvJela.RowTemplate.Height = 24;
             this.dgvJela.Size = new System.Drawing.Size(773, 316);
             this.dgvJela.TabIndex = 9;
+            this.dgvJela.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvJela_CellFormatting);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Lista jela:";
+            // 
+            // btnPromijeniStatus
+            // 
+            this.btnPromijeniStatus.Location = new System.Drawing.Point(688, 36);
+            this.btnPromijeniStatus.Name = "btnPromijeniStatus";
+            this.btnPromijeniStatus.Size = new System.Drawing.Size(101, 31);
+            this.btnPromijeniStatus.TabIndex = 11;
+            this.btnPromijeniStatus.Text = "Promijeni";
+            this.btnPromijeniStatus.UseVisualStyleBackColor = true;
+            this.btnPromijeniStatus.Click += new System.EventHandler(this.btnPromijeniStatus_Click);
             // 
             // Naziv
             // 
             this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Naziv.DataPropertyName = "JeloNaziv";
+            this.Naziv.DataPropertyName = "Jelo.Naziv";
             this.Naziv.HeaderText = "Naziv";
             this.Naziv.MinimumWidth = 6;
             this.Naziv.Name = "Naziv";
@@ -152,7 +173,7 @@ namespace eRestoran.WinUI.Narudzbe
             // Opis
             // 
             this.Opis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Opis.DataPropertyName = "JeloOpis";
+            this.Opis.DataPropertyName = "Jelo.Opis";
             this.Opis.HeaderText = "Opis";
             this.Opis.MinimumWidth = 6;
             this.Opis.Name = "Opis";
@@ -184,26 +205,6 @@ namespace eRestoran.WinUI.Narudzbe
             this.Ukupno.MinimumWidth = 6;
             this.Ukupno.Name = "Ukupno";
             this.Ukupno.ReadOnly = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Lista jela:";
-            // 
-            // btnPromijeniStatus
-            // 
-            this.btnPromijeniStatus.Location = new System.Drawing.Point(688, 36);
-            this.btnPromijeniStatus.Name = "btnPromijeniStatus";
-            this.btnPromijeniStatus.Size = new System.Drawing.Size(101, 31);
-            this.btnPromijeniStatus.TabIndex = 11;
-            this.btnPromijeniStatus.Text = "Promijeni";
-            this.btnPromijeniStatus.UseVisualStyleBackColor = true;
-            this.btnPromijeniStatus.Click += new System.EventHandler(this.btnPromijeniStatus_Click);
             // 
             // frmDetaljiNarudzbe
             // 
@@ -245,11 +246,11 @@ namespace eRestoran.WinUI.Narudzbe
         private System.Windows.Forms.Label lblStatusNarudzbe;
         private System.Windows.Forms.DataGridView dgvJela;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnPromijeniStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cijena;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kolicina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ukupno;
-        private System.Windows.Forms.Button btnPromijeniStatus;
     }
 }

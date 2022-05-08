@@ -13,7 +13,7 @@ namespace eRestoran.Model.Requests
 		public string Prezime { get; set; }
 		public string KorisnickoIme { get; set; }
         public string Password { get; set; }
-        public string PasswordHash { get; set; }
-		public string PasswordSalt { get; set; }
-	}
+        public string NazivPosla { get; set; }
+        public DateTime DatumZaposlenja { get; set; }
+    }
 }

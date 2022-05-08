@@ -98,6 +98,7 @@ namespace eRestoran.WinUI.Kategorije
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.txtNaziv);
             this.Name = "frmKategorijeDodaj";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKategorijeDodaj";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

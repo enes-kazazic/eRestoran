@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-    
+
 namespace eRestoran.WebAPI.Services
 {
     public class KorisniciService : CRUDService<Model.Korisnik, KorisnikSearchRequest, Database.Korisnik, KorisnikUpsertRequest, KorisnikUpsertRequest>, IKorisniciService
@@ -17,7 +17,7 @@ namespace eRestoran.WebAPI.Services
         public eRestoranContext Context { get; set; }
         protected readonly IMapper _mapper;
 
-        public KorisniciService(eRestoranContext context, IMapper mapper) : base(context, mapper)
+        public KorisniciService(eRestoranContext context, IMapper mapper) :     base(context, mapper)
         {
             Context = context;
             _mapper = mapper;
@@ -49,26 +49,53 @@ namespace eRestoran.WebAPI.Services
 
         public Model.Korisnik GetById(int id)
         {
-            var entity = Context.Korisnik.Find(id);
+            var entity = Context.Korisnik.Include(x => x.Uposlenik).FirstOrDefault(x => x.Id == id);
 
             return _mapper.Map<Model.Korisnik>(entity);
         }
 
-        public Model.Korisnik Insert(KorisnikUpsertRequest request)
+        public override async Task<Model.Korisnik> InsertAsync(KorisnikUpsertRequest request)
         {
             var entity = _mapper.Map<Database.Korisnik>(request);
-            Context.Add(entity);
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+
+            await Context.Database.BeginTransactionAsync();
+
+            Context.Korisnik.Add(entity);
+            await Context.SaveChangesAsync();
+
+            var employee = new Uposlenik
+            {
+                UposlenikId = entity.Id,
+                NazivPosla = request.NazivPosla,
+                DatumZaposlenja = request.DatumZaposlenja,
+            };
+
+            Context.Uposlenik.Add(employee);
+            await Context.SaveChangesAsync();
+            await Context.Database.CommitTransactionAsync();
 
             return _mapper.Map<Model.Korisnik>(entity);
 
         }
 
-        public Model.Korisnik Update(int id, KorisnikUpsertRequest request)
+        public override async Task<Model.Korisnik> UpdateAsync(int id, KorisnikUpsertRequest request)
         {
             var entity = Context.Korisnik.Find(id);
-            _mapper.Map(request, entity);
 
-            Context.SaveChanges();
+            await Context.Database.BeginTransactionAsync();
+            _mapper.Map(request, entity);
+            await Context.SaveChangesAsync();
+
+            var zaposlenik = Context.Uposlenik.Find(id);
+            zaposlenik.NazivPosla = request.NazivPosla;
+            zaposlenik.DatumZaposlenja = request.DatumZaposlenja;
+
+            await Context.SaveChangesAsync();
+            await Context.Database.CommitTransactionAsync();
+
             return _mapper.Map<Model.Korisnik>(entity);
         }
 
@@ -99,7 +126,7 @@ namespace eRestoran.WebAPI.Services
             if (entity == null)
             {
                 throw new UserException("Pogrešan username ili password");
-            }   
+            }
 
             var hash = GenerateHash(entity.LozinkaSalt, password);
 

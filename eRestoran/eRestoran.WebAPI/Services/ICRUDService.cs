@@ -9,8 +9,8 @@ namespace eRestoran.WebAPI.Services
 	{
 		Task<List<T>> InsertAsync(List<TInsert> request);
 
-		T Insert(TInsert request);
-		T Update(int id, TUpdate request);
+		Task<T> InsertAsync(TInsert request);
+		Task<T> UpdateAsync(int id, TUpdate request);
 		bool Delete(int id);
 	}
 }
