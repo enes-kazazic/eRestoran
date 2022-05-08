@@ -17,7 +17,7 @@ namespace eRestoran.WebAPI.Services
         public eRestoranContext Context { get; set; }
         protected readonly IMapper _mapper;
 
-        public KorisniciService(eRestoranContext context, IMapper mapper) :     base(context, mapper)
+        public KorisniciService(eRestoranContext context, IMapper mapper) : base(context, mapper)
         {
             Context = context;
             _mapper = mapper;
@@ -90,10 +90,13 @@ namespace eRestoran.WebAPI.Services
             await Context.SaveChangesAsync();
 
             var zaposlenik = Context.Uposlenik.Find(id);
-            zaposlenik.NazivPosla = request.NazivPosla;
-            zaposlenik.DatumZaposlenja = request.DatumZaposlenja;
+            if (zaposlenik != null)
+            {
+                zaposlenik.NazivPosla = request.NazivPosla;
+                zaposlenik.DatumZaposlenja = request.DatumZaposlenja;
+                await Context.SaveChangesAsync();
+            }
 
-            await Context.SaveChangesAsync();
             await Context.Database.CommitTransactionAsync();
 
             return _mapper.Map<Model.Korisnik>(entity);
