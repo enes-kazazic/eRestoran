@@ -80,14 +80,14 @@ class _HomeState extends State<Home> {
                 Navigator.of(context).pushNamed('Korpa');
               },
             ),
-            // const Divider(),
-            // ListTile(
-            //   leading: const Icon(Icons.person),
-            //   title: const Text("Profil"),
-            //   onTap: () {
-            //     Navigator.of(context).pushReplacementNamed('/profil');
-            //   },
-            // ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text("Profil"),
+              onTap: () {
+                Navigator.of(context).pushNamed('Profil');
+              },
+            ),
             const Divider(),
             ListTile(
               leading: const Icon(Icons.logout),
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget BodyWidget() {
-    return FutureBuilder<List<Jelo>>(
+    return FutureBuilder<List<Jelo>?>(
       future: GetPreporuceno(),
       builder: (BuildContext context, AsyncSnapshot<List<Jelo>?> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -125,11 +125,17 @@ class _HomeState extends State<Home> {
           if (snapshot.hasError) {
             return Center(child: Text('Error:${snapshot.error}'));
           } else {
-            return ListView(
-              children: snapshot.data!
-                  .map((e) => PreporucenaJelaWidget(e, e.Cijena))
-                  .toList(),
-            );
+            print("Data ->" + snapshot.toString());
+            return snapshot.hasData
+                ? ListView(
+                    children: snapshot.data!
+                        .map((e) => PreporucenaJelaWidget(e, e.Cijena))
+                        .toList(),
+                  )
+                : Center(
+                    child: const Text("Nema dovoljno podataka za prikaz.",
+                        style: TextStyle(fontSize: 18)),
+                  );
           }
         }
       },
@@ -210,8 +216,8 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Future<List<Jelo>> GetPreporuceno() async {
+  Future<List<Jelo>?> GetPreporuceno() async {
     var jela = await APIService.Get('Jelo/preporuceno', APIService.korisnikId);
-    return jela!.map((i) => Jelo.fromJson(i)).toList();
+    return jela?.map((i) => Jelo.fromJson(i)).toList();
   }
 }

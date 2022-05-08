@@ -6,17 +6,20 @@ class Korisnik {
   final String Prezime;
   final String KorisnickoIme;
 
-  Korisnik({required this.KorisnikId,
-      required this.Ime,
-      required this.Prezime,
-      required this.KorisnickoIme});
+  Korisnik({
+    required this.KorisnikId,
+    required this.Ime,
+    required this.Prezime,
+    required this.KorisnickoIme,
+  });
 
   factory Korisnik.fromJson(Map<String, dynamic> json) {
     return Korisnik(
-        KorisnikId: json["id"],
-        Ime: json['ime'],
-        Prezime: json['prezime'],
-        KorisnickoIme: json['korisnickoIme']);
+      KorisnikId: json["id"],
+      Ime: json['ime'],
+      Prezime: json['prezime'],
+      KorisnickoIme: json['korisnickoIme'],
+    );
   }
 
   Map<String, dynamic> toJson() => {

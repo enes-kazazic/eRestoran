@@ -75,10 +75,8 @@ class _KorpaState extends State<Korpa> {
                           )),
                     ],
                   )
-                : Container(
-                    child: const Text("Korpa je prazna.",
-                        style: TextStyle(fontSize: 18)),
-                  ))
+                : const Text("Korpa je prazna.",
+                    style: TextStyle(fontSize: 18)))
       ],
     );
   }

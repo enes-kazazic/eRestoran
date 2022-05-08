@@ -38,6 +38,22 @@ class APIService {
     return null;
   }
 
+  static Future<dynamic> GetById(String route, int id) async {
+    String baseUrl = baseRoute + route + "/" + id.toString();
+
+    final String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    final response = await http.get(
+      Uri.parse(baseUrl),
+      headers: {HttpHeaders.authorizationHeader: basicAuth},
+    );
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    }
+
+    return null;
+  }
+
   static Future<List<dynamic>?> Get(String route, dynamic? object) async {
     String queryString;
     String baseUrl = baseRoute + route;
@@ -79,6 +95,30 @@ class APIService {
     );
 
     print('Status code [POST] -> ' + response.statusCode.toString());
+    if (response.statusCode == 200) {
+      return json.decode(response.body.toString());
+    } else {
+      return null;
+    }
+  }
+
+  static Future<dynamic> put(String route, int id, String body) async {
+    String baseUrl = baseRoute + route + "/" + id.toString();
+
+    final String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+
+    final response = await http.put(
+      Uri.parse(baseUrl),
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: basicAuth
+      },
+      body: body,
+    );
+
+    print('Status code [PUT] -> ' + response.statusCode.toString());
+
     if (response.statusCode == 200) {
       return json.decode(response.body.toString());
     } else {

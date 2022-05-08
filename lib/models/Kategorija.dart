@@ -1,4 +1,4 @@
-class Kategorija{
+class Kategorija {
   late int KategorijaId;
   late String naziv;
 
@@ -7,10 +7,10 @@ class Kategorija{
     required this.naziv,
   });
 
-  factory Kategorija.fromJson(Map<String, dynamic> json){
+  factory Kategorija.fromJson(Map<String, dynamic> json) {
     return Kategorija(
-        KategorijaId:json["id"],
-        naziv: json["naziv"],
+      KategorijaId: json["id"],
+      naziv: json["naziv"],
     );
   }
 }

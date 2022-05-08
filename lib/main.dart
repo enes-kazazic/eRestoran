@@ -4,8 +4,8 @@ import 'package:restoran_seminarski/pages/Korpa.dart';
 import 'package:restoran_seminarski/pages/Login.dart';
 import 'package:restoran_seminarski/pages/Home.dart';
 import 'package:restoran_seminarski/pages/Narudzbe.dart';
-import 'package:restoran_seminarski/pages/Test.dart';
 import 'package:restoran_seminarski/pages/Jela.dart';
+import 'package:restoran_seminarski/pages/Profil.dart';
 
 void main() {
   Stripe.publishableKey =
@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         'Home': (context) => Home(),
         'Jela': (context) => Jela(),
         'Korpa': (context) => Korpa(),
-        'Narudzbe': (context) => Narudzbe()
+        'Narudzbe': (context) => Narudzbe(),
+        'Profil': (context) => Profil()
       },
     );
   }
