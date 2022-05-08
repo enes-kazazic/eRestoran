@@ -27,6 +27,12 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(
+                height: 100,
+                width: 100,
+                child: FittedBox(child: Icon(Icons.local_restaurant)),
+              ),
+              const SizedBox(height: 65),
               TextField(
                   controller: usernameController,
                   decoration: InputDecoration(
@@ -37,7 +43,7 @@ class _LoginState extends State<Login> {
                 height: 20,
               ),
               TextField(
-                  obscureText: true, 
+                  obscureText: true,
                   controller: passwordController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(

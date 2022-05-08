@@ -26,23 +26,24 @@ class _JelaState extends State<Jela> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            Text('Jela'),
-            InkWell(
-              onTap: () => { Navigator.of(context).pushNamed('Korpa') },
-              child: Badge(
-                badgeContent: Text(CartService.products.length.toString(), 
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      )),
-                child: Icon(Icons.shopping_cart)
-              ),
-            )
-          ])
-        ),
+          title:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text('Jela'),
+        InkWell(
+          onTap: () => {
+            Navigator.of(context)
+                .pushNamed('Korpa')
+                .then((_) => setState(() {}))
+          },
+          child: Badge(
+              badgeContent: Text(CartService.products.length.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  )),
+              child: Icon(Icons.shopping_cart)),
+        )
+      ])),
       body: Column(
         children: [
           Container(child: dropDownWidget()),
@@ -50,7 +51,7 @@ class _JelaState extends State<Jela> {
         ],
       ),
     );
-  } 
+  }
 
   Widget bodyWidget() {
     return FutureBuilder<List<Jelo>>(
@@ -75,20 +76,18 @@ class _JelaState extends State<Jela> {
   Widget dropDownWidget() {
     return FutureBuilder<List<Kategorija>>(
         future: GetKategorije(_selectKategorija),
-        builder: (BuildContext context,
-            AsyncSnapshot<List<Kategorija>> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<List<Kategorija>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
               child: Text('Loading...'),
             );
-          }
-          else {
+          } else {
             if (snapshot.hasError) {
               return Center(
                 child: Text('${snapshot.error}'),
               );
-            }
-            else {
+            } else {
               return Padding(
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: DropdownButton<dynamic>(
@@ -97,8 +96,8 @@ class _JelaState extends State<Jela> {
                   items: items,
                   onChanged: (newVal) {
                     setState(() {
-                        _selectKategorija = newVal;
-                        GetJela(_selectKategorija);
+                      _selectKategorija = newVal;
+                      GetJela(_selectKategorija);
                     });
                   },
                   value: _selectKategorija,
@@ -114,14 +113,15 @@ class _JelaState extends State<Jela> {
     if (selectedItem != null && selectedItem.KategorijaId != 0) {
       queryParams = {'KategorijaId': selectedItem.KategorijaId.toString()};
     }
-    
+
     var jela = await APIService.Get('Jelo', queryParams);
     return jela!.map((i) => Jelo.fromJson(i)).toList();
   }
 
   Future<List<Kategorija>> GetKategorije(Kategorija? selectedItem) async {
     var kategorije = await APIService.Get('Kategorija', null);
-    var kategorijeList = kategorije?.map((i) => Kategorija.fromJson(i)).toList();
+    var kategorijeList =
+        kategorije?.map((i) => Kategorija.fromJson(i)).toList();
 
     items = kategorijeList!.map((item) {
       return DropdownMenuItem<Kategorija>(
@@ -130,12 +130,14 @@ class _JelaState extends State<Jela> {
       );
     }).toList();
 
-      if (selectedItem != null && selectedItem.KategorijaId != 0) {
-        _selectKategorija = kategorijeList.where((element) => element.KategorijaId == selectedItem.KategorijaId).first;
-      }
-      
-      return kategorijeList;
-   }
+    if (selectedItem != null && selectedItem.KategorijaId != 0) {
+      _selectKategorija = kategorijeList
+          .where((element) => element.KategorijaId == selectedItem.KategorijaId)
+          .first;
+    }
+
+    return kategorijeList;
+  }
 
   Widget JelaWidget(Jelo, Cijena) {
     return Card(
@@ -189,17 +191,17 @@ class _JelaState extends State<Jela> {
             ),
             TextButton(
                 onPressed: () async {
-                  if(CartService.NarudzbaId == null)
-                  {
+                  if (CartService.NarudzbaId == null) {
                     var narudzbaRequest = Narudzba(
-                      DatumNarudzbe: DateTime.now(),
-                      korisnikId: APIService.korisnikId,
-                      statusNarudzbeId: 1);
+                        DatumNarudzbe: DateTime.now(),
+                        korisnikId: APIService.korisnikId,
+                        statusNarudzbeId: 1);
 
-                    var result = await APIService.post("Narudzba", json.encode(narudzbaRequest.toJson()));
+                    var result = await APIService.post(
+                        "Narudzba", json.encode(narudzbaRequest.toJson()));
                     CartService.NarudzbaId = result['id'];
                   }
-                  
+
                   CartService.addProduct(Jelo, 1);
                   setState(() {});
                 },
@@ -242,17 +244,16 @@ class _JelaState extends State<Jela> {
     );
   }
 
-
   Widget recenzijaModal(Jelo, value) {
     var recenzijaOpisController = TextEditingController();
-    
+
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
           height: 400,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(  
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -287,19 +288,20 @@ class _JelaState extends State<Jela> {
                 TextButton(
                     onPressed: () async {
                       var request = Recenzija(
-                        Ocjena: value.toInt(), 
-                        Opis: recenzijaOpisController.text,
-                        JeloId: Jelo.JeloId,
-                        KorisnikId: APIService.korisnikId!);
+                          Ocjena: value.toInt(),
+                          Opis: recenzijaOpisController.text,
+                          JeloId: Jelo.JeloId,
+                          KorisnikId: APIService.korisnikId!);
 
-                      await APIService.post("Recenzija", json.encode(request.toJson()));   
+                      await APIService.post(
+                          "Recenzija", json.encode(request.toJson()));
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Center(child: Text("Uspješno")),
+                        content: SizedBox(
+                            height: 20, child: Center(child: Text("Uspješno"))),
                         backgroundColor: Color.fromARGB(255, 9, 100, 13),
                       ));
                       Navigator.pop(context);
-                      setState(() {
-                      });
+                      setState(() {});
                     },
                     child: saveButton())
               ],

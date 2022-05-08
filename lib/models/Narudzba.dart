@@ -4,21 +4,23 @@ class Narudzba {
   late int? NarudzbaId;
   final DateTime DatumNarudzbe;
   final korisnikId;
-  final statusNarudzbeId;
+  final int statusNarudzbeId;
+  final String? statusNarudzbe;
 
-  Narudzba({this.NarudzbaId, 
-           required this.DatumNarudzbe, 
-           required this.korisnikId, 
-           required this.statusNarudzbeId});
-
+  Narudzba(
+      {this.NarudzbaId,
+      required this.DatumNarudzbe,
+      required this.korisnikId,
+      required this.statusNarudzbeId,
+      this.statusNarudzbe});
 
   factory Narudzba.fromJson(Map<String, dynamic> json) {
     return Narudzba(
         NarudzbaId: json["id"],
-        DatumNarudzbe: DateTime.parse(json['DatumNarudzbe'].toString()),
-        korisnikId: ['KorisnikId'],
-        statusNarudzbeId: ['StatusNarudzbeId'],
-    );
+        DatumNarudzbe: DateTime.parse(json['datumNarudzbe'].toString()),
+        korisnikId: json['korisnikId'],
+        statusNarudzbeId: json['statusNarudzbeId'],
+        statusNarudzbe: json["statusNarudzbe"]);
   }
   Map<String, dynamic> toJson() => {
         "NarudzbaId": NarudzbaId,

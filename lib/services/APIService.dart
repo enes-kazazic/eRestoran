@@ -45,21 +45,18 @@ class APIService {
     //String baseUrl="http://10.0x.17.61:55891/api/"+route;
 
     if (object != null) {
-      if(object is int){
-        	baseUrl = baseUrl + '/' + object.toString();
-      }
-      else{
-          queryString = Uri(queryParameters: object).query;
-        	baseUrl = baseUrl + '?' + queryString;
+      if (object is int) {
+        baseUrl = baseUrl + '/' + object.toString();
+      } else {
+        queryString = Uri(queryParameters: object).query;
+        baseUrl = baseUrl + '?' + queryString;
       }
     }
 
-
-    final String basicAuth='Basic '+base64Encode(utf8.encode('$username:$password'));
-    final response = await http.get(
-      Uri.parse(baseUrl),
-      headers: {HttpHeaders.authorizationHeader:basicAuth}
-    );
+    final String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    final response = await http.get(Uri.parse(baseUrl),
+        headers: {HttpHeaders.authorizationHeader: basicAuth});
     print('Status code [GET] -> ' + response.statusCode.toString());
     if (response.statusCode == 200) {
       return json.decode(response.body) as List;
