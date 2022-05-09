@@ -1,0 +1,31 @@
+version: "3"
+services:
+    restoran-sql:
+        image: "mcr.microsoft.com/mssql/server:2019-latest"
+        restart: unless-stopped
+        environment:
+            SA_PASSWORD: "QWElkj132!"
+            ACCEPT_EULA: "Y"
+            MSSQL_PID: "Developer"
+        ports:
+            - 1433:1433
+        networks:
+            - restorannet
+
+    restoran-api:
+        restart: unless-stopped
+        build: .
+        environment:
+            - ConnectionStrings:DefaultConnection=Server=restoran-sql,1433;Database=180013;User=sa;Password=QWElkj132!;
+        ports:
+            - 5001:80
+        networks:
+            - restorannet
+        depends_on:
+            - restoran-sql
+        links:
+            - restoran-sql 
+
+networks:
+  restorannet:
+    driver: bridge
