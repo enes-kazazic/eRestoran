@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eRestoran.WebAPI.Database
 {
-	public class eRestoranContext : DbContext
+	public partial class eRestoranContext : DbContext
 	{
 		public eRestoranContext(DbContextOptions options)
 			:base(options)
@@ -31,7 +31,9 @@ namespace eRestoran.WebAPI.Database
 				entity.HasOne(d => d.Korisnik)
 					.WithOne(d => d.Uposlenik);
 			});
-        }
 
+			OnModelCreatingPartial(modelBuilder);
+        }
+		partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 	}
 }
