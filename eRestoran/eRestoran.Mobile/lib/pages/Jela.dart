@@ -146,11 +146,17 @@ class _JelaState extends State<Jela> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image(
-              height: 50,
-              width: 50,
-              image: MemoryImage(Jelo.Slika),
-            ),
+            Jelo.Slika.isEmpty
+                ? SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: Icon(Icons.not_interested),
+                  )
+                : Image(
+                    height: 50,
+                    width: 50,
+                    image: MemoryImage(Jelo.Slika),
+                  ),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(Jelo.Naziv,
                   style: TextStyle(

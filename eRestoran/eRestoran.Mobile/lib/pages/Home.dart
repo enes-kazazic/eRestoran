@@ -149,11 +149,17 @@ class _HomeState extends State<Home> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image(
-              height: 50,
-              width: 50,
-              image: MemoryImage(Jelo.Slika),
-            ),
+            Jelo.Slika.isNotEmpty
+                ? Image(
+                    height: 50,
+                    width: 50,
+                    image: MemoryImage(Jelo.Slika),
+                  )
+                : SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: Icon(Icons.not_interested),
+                  ),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(Jelo.Naziv,
                   style: TextStyle(

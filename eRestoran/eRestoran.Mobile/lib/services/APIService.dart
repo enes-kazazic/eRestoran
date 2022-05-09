@@ -10,16 +10,10 @@ class APIService {
   static String? username;
   static String? password;
   static int? korisnikId;
-  static const String baseRoute = "http://10.0.2.2:5000/api/";
+  static const String baseRoute = "http://10.0.2.2:5001/api/";
   String? route;
 
   APIService({this.route});
-
-  //void SetParameters(String Username, String Password)
-  //{
-  //  username=Username;
-  //  password=Password;
-  //}
 
   static Future<Korisnik?> prijava() async {
     String baseUrl = baseRoute + "Korisnik/Authenticate";
@@ -57,8 +51,6 @@ class APIService {
   static Future<List<dynamic>?> Get(String route, dynamic? object) async {
     String queryString;
     String baseUrl = baseRoute + route;
-    //String baseUrl="http://127.0.0.1:5001/api/"+route;
-    //String baseUrl="http://10.0x.17.61:55891/api/"+route;
 
     if (object != null) {
       if (object is int) {

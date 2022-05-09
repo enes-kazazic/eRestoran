@@ -92,9 +92,11 @@ class _KorpaState extends State<Korpa> {
               height: 100,
               child: FittedBox(
                 fit: BoxFit.fill,
-                child: Image(
-                  image: MemoryImage(cart.proizvod.Slika),
-                ),
+                child: cart.proizvod.Slika.isNotEmpty
+                    ? Image(
+                        image: MemoryImage(cart.proizvod.Slika),
+                      )
+                    : Icon(Icons.not_interested),
               ),
             ),
             // ignore: prefer_const_constructors
