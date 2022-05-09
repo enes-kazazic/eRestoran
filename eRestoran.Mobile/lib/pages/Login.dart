@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
                       hintText: 'Korisnicko ime')),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20)),
                       hintText: 'Password')),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -66,6 +66,13 @@ class _LoginState extends State<Login> {
                       print(result);
                       APIService.korisnikId = result!.KorisnikId;
                       Navigator.of(context).pushReplacementNamed('Home');
+                    }
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: SizedBox(
+                            height: 20, child: Center(child: Text("Pogresan username ili password."))),
+                        backgroundColor: Colors.red,
+                      ));
                     }
                   },
                   child: Text('Login',
