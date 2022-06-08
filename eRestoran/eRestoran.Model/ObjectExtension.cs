@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-namespace eProdaja.Model
+namespace eRestoran.Model
 {
     public static class ObjectExtension
     {
@@ -29,7 +27,6 @@ namespace eProdaja.Model
                 return null;
             }
 
-
             JToken token = metaToken as JToken;
             if (token == null)
             {
@@ -43,7 +40,6 @@ namespace eProdaja.Model
                     dict.Add("id", metaToken.ToString());
                     return dict;
                 }
-
             }
 
             if (token.HasValues)
@@ -98,8 +94,5 @@ namespace eProdaja.Model
 
             return url;
         }
-
-
-
     }
 }

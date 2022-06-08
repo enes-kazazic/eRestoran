@@ -3,11 +3,6 @@ using eRestoran.Model.Requests;
 using eRestoran.WinUI.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +11,11 @@ namespace eRestoran.WinUI.Korisnici
     public partial class frmKorisniciUredi : Form
     {
         private readonly ApiService _korisnici = new ApiService("Korisnik");
+        private readonly ApiService _drzave = new ApiService("Drzava");
+        private readonly ApiService _gradovi = new ApiService("Grad");
         private readonly int KorisnikId;
+        private Korisnik Korisnik;
+
         public frmKorisniciUredi(int korisnikId)
         {
             InitializeComponent();
@@ -25,8 +24,28 @@ namespace eRestoran.WinUI.Korisnici
 
         private async void frmKorisniciUredi_Load(object sender, EventArgs e)
         {
-            var korisnik = await _korisnici.GetById<Korisnik>(KorisnikId);
-            LoadData(korisnik);
+            Korisnik = await _korisnici.GetById<Korisnik>(KorisnikId);
+            LoadData(Korisnik);
+            await LoadDrzave();
+            await LoadGradovi();
+        }
+
+        public async Task LoadGradovi()
+        {
+            var gradovi = await _gradovi.Get<List<Model.Grad>>();
+            cmbGradovi.DataSource = gradovi;
+            cmbGradovi.DisplayMember = "Naziv";
+            cmbGradovi.ValueMember = "Id";
+            cmbGradovi.SelectedValue = Korisnik.GradId;
+        }
+
+        public async Task LoadDrzave()
+        {
+            var drzave = await _drzave.Get<List<Model.Drzava>>();
+            cmbDrzava.DataSource = drzave;
+            cmbDrzava.DisplayMember = "Naziv";
+            cmbDrzava.ValueMember = "Id";
+            cmbDrzava.SelectedValue = Korisnik.DrzavaId;
         }
 
         private void LoadData(Korisnik korisnik)
@@ -42,6 +61,7 @@ namespace eRestoran.WinUI.Korisnici
                 dtpDatumZaposlenja.Value = korisnik.Uposlenik.DatumZaposlenja;
             }
         }
+
         private async void btnSpremi_Click(object sender, EventArgs e)
         {
             if (!Validacija())
@@ -53,7 +73,9 @@ namespace eRestoran.WinUI.Korisnici
                 Prezime = txtPrezime.Text,
                 KorisnickoIme = txtUsername.Text,
                 NazivPosla = txtNazivPosla.Text,
-                DatumZaposlenja = Convert.ToDateTime(dtpDatumZaposlenja.Text)
+                DatumZaposlenja = Convert.ToDateTime(dtpDatumZaposlenja.Text),
+                DrzavaId = (int)cmbDrzava.SelectedValue,
+                GradId = (int)cmbGradovi.SelectedValue
             };
 
             await _korisnici.Update<Korisnik>(KorisnikId, request);
@@ -90,4 +112,3 @@ namespace eRestoran.WinUI.Korisnici
         }
     }
 }
-

@@ -3,11 +3,6 @@ using eRestoran.Model.Requests;
 using eRestoran.WinUI.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,9 +11,34 @@ namespace eRestoran.WinUI.Korisnici
     public partial class frmKorisniciDodaj : Form
     {
         private readonly ApiService _korisnici = new ApiService("Korisnik");
+        private readonly ApiService _drzave = new ApiService("Drzava");
+        private readonly ApiService _gradovi = new ApiService("Grad");
+
         public frmKorisniciDodaj()
         {
             InitializeComponent();
+        }
+
+        private async void frmKorisniciDodaj_Load(object sender, EventArgs e)
+        {
+            await LoadDrzave();
+            await LoadGradovi();
+        }
+
+        public async Task LoadGradovi()
+        {
+            var gradovi = await _gradovi.Get<List<Model.Grad>>();
+            cmbGradovi.DataSource = gradovi;
+            cmbGradovi.DisplayMember = "Naziv";
+            cmbGradovi.ValueMember = "Id";
+        }
+
+        public async Task LoadDrzave()
+        {
+            var drzave = await _drzave.Get<List<Model.Drzava>>();
+            cmbDrzava.DataSource = drzave;
+            cmbDrzava.DisplayMember = "Naziv";
+            cmbDrzava.ValueMember = "Id";
         }
 
         private async void btnDodaj_Click(object sender, EventArgs e)
@@ -33,7 +53,9 @@ namespace eRestoran.WinUI.Korisnici
                 KorisnickoIme = txtUsername.Text,
                 Password = txtPassword.Text,
                 NazivPosla = txtNazivPosla.Text,
-                DatumZaposlenja = Convert.ToDateTime(dtpDatumZaposlenja.Text)
+                DatumZaposlenja = Convert.ToDateTime(dtpDatumZaposlenja.Text),
+                DrzavaId = (int)cmbDrzava.SelectedValue,
+                GradId = (int)cmbGradovi.SelectedValue
             };
 
             await _korisnici.Insert<Korisnik>(request);

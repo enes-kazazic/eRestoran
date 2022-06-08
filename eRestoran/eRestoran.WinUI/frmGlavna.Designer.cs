@@ -35,9 +35,11 @@ namespace eRestoran.WinUI
             this.jeloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.izvjestajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -49,68 +51,84 @@ namespace eRestoran.WinUI
             this.narudzbeToolStripMenuItem,
             this.jeloToolStripMenuItem,
             this.kategorijaToolStripMenuItem,
-            this.korisniciToolStripMenuItem});
+            this.korisniciToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.izvjestajToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(632, 24);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(843, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
             // narudzbeToolStripMenuItem
             // 
             this.narudzbeToolStripMenuItem.Name = "narudzbeToolStripMenuItem";
-            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.narudzbeToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.narudzbeToolStripMenuItem.Text = "Narudzbe";
             this.narudzbeToolStripMenuItem.Click += new System.EventHandler(this.narudzbeToolStripMenuItem_Click);
             // 
             // jeloToolStripMenuItem
             // 
             this.jeloToolStripMenuItem.Name = "jeloToolStripMenuItem";
-            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.jeloToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.jeloToolStripMenuItem.Text = "Jelo";
             this.jeloToolStripMenuItem.Click += new System.EventHandler(this.jeloToolStripMenuItem_Click);
             // 
             // kategorijaToolStripMenuItem
             // 
             this.kategorijaToolStripMenuItem.Name = "kategorijaToolStripMenuItem";
-            this.kategorijaToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.kategorijaToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
             this.kategorijaToolStripMenuItem.Text = "Kategorija";
             this.kategorijaToolStripMenuItem.Click += new System.EventHandler(this.kategorijaToolStripMenuItem_Click);
             // 
             // korisniciToolStripMenuItem
             // 
             this.korisniciToolStripMenuItem.Name = "korisniciToolStripMenuItem";
-            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.korisniciToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.korisniciToolStripMenuItem.Text = "Korisnici";
             this.korisniciToolStripMenuItem.Click += new System.EventHandler(this.korisniciToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 24);
             // 
             // statusStrip
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Location = new System.Drawing.Point(0, 532);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip.Size = new System.Drawing.Size(843, 26);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
             this.toolStripStatusLabel.Text = "Status";
+            // 
+            // izvjestajToolStripMenuItem
+            // 
+            this.izvjestajToolStripMenuItem.Name = "izvjestajToolStripMenuItem";
+            this.izvjestajToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.izvjestajToolStripMenuItem.Text = "Izvjestaj";
+            this.izvjestajToolStripMenuItem.Click += new System.EventHandler(this.izvjestajToolStripMenuItem_Click);
             // 
             // frmGlavna
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 453);
+            this.ClientSize = new System.Drawing.Size(843, 558);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGlavna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGlavna";
@@ -133,6 +151,8 @@ namespace eRestoran.WinUI
         private System.Windows.Forms.ToolStripMenuItem jeloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kategorijaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem korisniciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem izvjestajToolStripMenuItem;
     }
 }
 

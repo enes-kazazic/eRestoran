@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eRestoran.WebAPI.Database;
 
 namespace eRestoran.WebAPI.Migrations
 {
     [DbContext(typeof(eRestoranContext))]
-    partial class eRestoranContextModelSnapshot : ModelSnapshot
+    [Migration("20220604195839_added_tables_Grad_Drzava_Uplata")]
+    partial class added_tables_Grad_Drzava_Uplata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,11 +40,6 @@ namespace eRestoran.WebAPI.Migrations
                         {
                             Id = 1,
                             Naziv = "Bosna i Hercegovina"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Naziv = "Test"
                         });
                 });
 
@@ -215,8 +212,8 @@ namespace eRestoran.WebAPI.Migrations
                             GradId = 2,
                             Ime = "Admin",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "rDEPtSFBJDTdiU9UDDlQP91clpYcq5LUIeUWoU7S134=",
-                            LozinkaSalt = "phzA+nctd0u9yWY7w4h9xw==",
+                            LozinkaHash = "sOrM9/gW6Ii5cPXfMwb/UfaW8+Vnz8f5JPSF4wFcBtQ=",
+                            LozinkaSalt = "BypDNOOgqk4jTqg/gZRpyA==",
                             Prezime = "admin"
                         },
                         new
@@ -226,8 +223,8 @@ namespace eRestoran.WebAPI.Migrations
                             GradId = 2,
                             Ime = "test",
                             KorisnickoIme = "test",
-                            LozinkaHash = "peVsycdT/s0A+yZBMdrgGNpeHAO2JqkfhkcnH8jnvpI=",
-                            LozinkaSalt = "pFtLSSxOAfiUGrJzEjS7qA==",
+                            LozinkaHash = "NAIoac1b6wNbFQlZC8aSKLNoilCQ6LVWH8nAL8H2Fuk=",
+                            LozinkaSalt = "NE58KO+F4ExrsdTnt84b9A==",
                             Prezime = "test"
                         },
                         new
@@ -237,8 +234,8 @@ namespace eRestoran.WebAPI.Migrations
                             GradId = 2,
                             Ime = "John",
                             KorisnickoIme = "johnDoe",
-                            LozinkaHash = "BlouC47PYmgibrpTRzqHP0iYtBA5CZcC2LPM4/6Zvd4=",
-                            LozinkaSalt = "nzHvrGo1/oFpyTCdLOQSwA==",
+                            LozinkaHash = "LSO8NCEHi8tj3Iz2EELFv//8uKHsmIiA8VAHcdx+Q34=",
+                            LozinkaSalt = "T5kZZgkPZz9O2a1K0u6dLg==",
                             Prezime = "Doe"
                         },
                         new
@@ -248,8 +245,8 @@ namespace eRestoran.WebAPI.Migrations
                             GradId = 2,
                             Ime = "Some",
                             KorisnickoIme = "myUsername",
-                            LozinkaHash = "4By3U21zPO2Ml+VAXRNcYvkMrI1hN6W4AOpLBSMCzl8=",
-                            LozinkaSalt = "1dHqc3t/DvzLGBz3PySslg==",
+                            LozinkaHash = "cfe++DX9NzrRsBBIZ/Orp82Jr/f6kocNpI4/5+jGIjc=",
+                            LozinkaSalt = "vBZJjxgmDQ9Zp9KYI8Bv7g==",
                             Prezime = "User"
                         });
                 });
@@ -282,7 +279,7 @@ namespace eRestoran.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            DatumNarudzbe = new DateTime(2022, 6, 8, 16, 48, 56, 715, DateTimeKind.Local).AddTicks(864),
+                            DatumNarudzbe = new DateTime(2022, 6, 4, 21, 58, 39, 227, DateTimeKind.Local).AddTicks(6984),
                             KorisnikId = 1,
                             StatusNarudzbeId = 1
                         });
@@ -427,12 +424,6 @@ namespace eRestoran.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BrojTransakcije")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DatumTransakcije")
-                        .HasColumnType("datetime2");
-
                     b.Property<double>("Iznos")
                         .HasColumnType("float");
 
@@ -449,35 +440,30 @@ namespace eRestoran.WebAPI.Migrations
                         new
                         {
                             Id = 1,
-                            DatumTransakcije = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Iznos = 10.0,
                             KorisnikId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DatumTransakcije = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Iznos = 10.0,
                             KorisnikId = 1
                         },
                         new
                         {
                             Id = 3,
-                            DatumTransakcije = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Iznos = 20.0,
                             KorisnikId = 2
                         },
                         new
                         {
                             Id = 4,
-                            DatumTransakcije = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Iznos = 5.0,
                             KorisnikId = 3
                         },
                         new
                         {
                             Id = 5,
-                            DatumTransakcije = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Iznos = 7.0,
                             KorisnikId = 4
                         });

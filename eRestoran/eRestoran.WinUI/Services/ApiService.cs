@@ -2,7 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using eProdaja.Model;
+using eRestoran.Model;
 using eRestoran.WinUI.Properties;
 using Flurl.Http;
 

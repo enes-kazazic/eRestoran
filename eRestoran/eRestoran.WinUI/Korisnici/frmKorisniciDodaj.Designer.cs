@@ -40,12 +40,16 @@ namespace eRestoran.WinUI.Korisnici
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Drzava = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.cmbGradovi = new System.Windows.Forms.ComboBox();
             this.dtpDatumZaposlenja = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNazivPosla = new System.Windows.Forms.TextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbDrzava = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -139,16 +143,46 @@ namespace eRestoran.WinUI.Korisnici
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbDrzava);
+            this.groupBox2.Controls.Add(this.Drzava);
+            this.groupBox2.Controls.Add(this.label33);
+            this.groupBox2.Controls.Add(this.cmbGradovi);
             this.groupBox2.Controls.Add(this.dtpDatumZaposlenja);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtNazivPosla);
             this.groupBox2.Location = new System.Drawing.Point(12, 222);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(207, 191);
+            this.groupBox2.Size = new System.Drawing.Size(405, 191);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Podaci o uposleniku";
+            // 
+            // Drzava
+            // 
+            this.Drzava.AutoSize = true;
+            this.Drzava.Location = new System.Drawing.Point(209, 40);
+            this.Drzava.Name = "Drzava";
+            this.Drzava.Size = new System.Drawing.Size(57, 17);
+            this.Drzava.TabIndex = 13;
+            this.Drzava.Text = "Drzava:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(209, 113);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(44, 17);
+            this.label33.TabIndex = 12;
+            this.label33.Text = "Grad:";
+            // 
+            // cmbGradovi
+            // 
+            this.cmbGradovi.FormattingEnabled = true;
+            this.cmbGradovi.Location = new System.Drawing.Point(212, 133);
+            this.cmbGradovi.Name = "cmbGradovi";
+            this.cmbGradovi.Size = new System.Drawing.Size(187, 24);
+            this.cmbGradovi.TabIndex = 11;
             // 
             // dtpDatumZaposlenja
             // 
@@ -186,7 +220,7 @@ namespace eRestoran.WinUI.Korisnici
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(316, 371);
+            this.btnDodaj.Location = new System.Drawing.Point(310, 419);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(101, 42);
             this.btnDodaj.TabIndex = 9;
@@ -198,17 +232,26 @@ namespace eRestoran.WinUI.Korisnici
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // cmbDrzava
+            // 
+            this.cmbDrzava.FormattingEnabled = true;
+            this.cmbDrzava.Location = new System.Drawing.Point(212, 60);
+            this.cmbDrzava.Name = "cmbDrzava";
+            this.cmbDrzava.Size = new System.Drawing.Size(187, 24);
+            this.cmbDrzava.TabIndex = 14;
+            // 
             // frmKorisniciDodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 450);
+            this.ClientSize = new System.Drawing.Size(431, 470);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmKorisniciDodaj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj korisnika";
+            this.Load += new System.EventHandler(this.frmKorisniciDodaj_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -236,5 +279,9 @@ namespace eRestoran.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtNazivPosla;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label Drzava;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ComboBox cmbGradovi;
+        private System.Windows.Forms.ComboBox cmbDrzava;
     }
 }

@@ -135,5 +135,12 @@ namespace eRestoran.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void izvjestajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKorisnikTransakcije frm = new frmKorisnikTransakcije();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

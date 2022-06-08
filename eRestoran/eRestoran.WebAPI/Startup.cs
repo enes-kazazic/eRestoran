@@ -66,6 +66,9 @@ namespace eRestoran.WebAPI
             services.AddScoped<ICRUDService<Model.StavkeNarudzbe, StavkeNarudzbeSearchRequest, StavkeNarudzbeUpsertRequest, StavkeNarudzbeUpsertRequest>, StavkeNarudzbeService>();
             services.AddScoped<ICRUDService<Model.Recenzija, object, RecenzijaUpsertRequest, RecenzijaUpsertRequest>, RecenzijaService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IBaseService<Model.Drzava, object>, DrzavaService>();
+            services.AddScoped<IBaseService<Model.Grad, object>, GradService>();
+            services.AddScoped<ICRUDService<Model.Uplata, UplataSearchRequest, UplataUpsertRequest, UplataUpsertRequest>, UplataService>();
 
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);

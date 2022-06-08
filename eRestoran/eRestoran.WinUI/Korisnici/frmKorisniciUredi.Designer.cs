@@ -44,6 +44,10 @@ namespace eRestoran.WinUI.Korisnici
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Drzava = new System.Windows.Forms.Label();
+            this.cmbDrzava = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.cmbGradovi = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -51,7 +55,7 @@ namespace eRestoran.WinUI.Korisnici
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Location = new System.Drawing.Point(317, 384);
+            this.btnSpremi.Location = new System.Drawing.Point(311, 431);
             this.btnSpremi.Name = "btnSpremi";
             this.btnSpremi.Size = new System.Drawing.Size(101, 42);
             this.btnSpremi.TabIndex = 12;
@@ -67,7 +71,7 @@ namespace eRestoran.WinUI.Korisnici
             this.groupBox2.Controls.Add(this.txtNazivPosla);
             this.groupBox2.Location = new System.Drawing.Point(13, 235);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(207, 191);
+            this.groupBox2.Size = new System.Drawing.Size(405, 191);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Podaci o uposleniku";
@@ -177,11 +181,49 @@ namespace eRestoran.WinUI.Korisnici
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // Drzava
+            // 
+            this.Drzava.AutoSize = true;
+            this.Drzava.Location = new System.Drawing.Point(222, 277);
+            this.Drzava.Name = "Drzava";
+            this.Drzava.Size = new System.Drawing.Size(57, 17);
+            this.Drzava.TabIndex = 17;
+            this.Drzava.Text = "Drzava:";
+            // 
+            // cmbDrzava
+            // 
+            this.cmbDrzava.FormattingEnabled = true;
+            this.cmbDrzava.Location = new System.Drawing.Point(225, 299);
+            this.cmbDrzava.Name = "cmbDrzava";
+            this.cmbDrzava.Size = new System.Drawing.Size(187, 24);
+            this.cmbDrzava.TabIndex = 14;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(222, 348);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(44, 17);
+            this.label33.TabIndex = 16;
+            this.label33.Text = "Grad:";
+            // 
+            // cmbGradovi
+            // 
+            this.cmbGradovi.FormattingEnabled = true;
+            this.cmbGradovi.Location = new System.Drawing.Point(225, 368);
+            this.cmbGradovi.Name = "cmbGradovi";
+            this.cmbGradovi.Size = new System.Drawing.Size(187, 24);
+            this.cmbGradovi.TabIndex = 15;
+            // 
             // frmKorisniciUredi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 450);
+            this.ClientSize = new System.Drawing.Size(431, 485);
+            this.Controls.Add(this.Drzava);
+            this.Controls.Add(this.cmbDrzava);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.cmbGradovi);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -195,6 +237,7 @@ namespace eRestoran.WinUI.Korisnici
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -214,5 +257,9 @@ namespace eRestoran.WinUI.Korisnici
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label Drzava;
+        private System.Windows.Forms.ComboBox cmbDrzava;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ComboBox cmbGradovi;
     }
 }
