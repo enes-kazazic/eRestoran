@@ -12,7 +12,7 @@ namespace eRestoran.WebAPI
     {
         public static void Init(eRestoranContext context)
         {
-            //context.Database.Migrate();
+            context.Database.Migrate();
         }
     }
 }
