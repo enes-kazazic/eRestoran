@@ -46,7 +46,7 @@ namespace eRestoran.WebAPI.Mappers
 			CreateMap<Database.Grad, Model.Grad>();
 
 			CreateMap<Database.Drzava, Model.Drzava>();
-
+				
             CreateMap<Database.Uplata, Model.Uplata>();
         }
 	}

@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:restoran_seminarski/models/Uplata.dart';
+import 'package:restoran_seminarski/pages/Login.dart';
 import 'package:restoran_seminarski/services/APIService.dart';
 import 'package:restoran_seminarski/services/CartService.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' hide Card;
@@ -199,6 +201,8 @@ class _KorpaState extends State<Korpa> {
                   merchantDisplayName: 'Restoran'))
           .then((value) {});
 
+      await insertUplata(iznos, paymentIntentData!['id']);
+
       ///now finally display payment sheeet
       displayPaymentSheet();
     } catch (e, s) {
@@ -226,6 +230,17 @@ class _KorpaState extends State<Korpa> {
     } catch (err) {
       print('err charging user: ${err.toString()}');
     }
+  }
+
+  insertUplata(double amount, String brojTransakcije) async {
+    var request = Uplata(
+      KorisnikId: APIService.korisnikId,
+      Iznos: amount,
+      BrojTransakcije: brojTransakcije,
+      DatumTransakcije: DateTime.now(),
+    );
+
+    await APIService.post("Uplata", json.encode(request.toJson()));
   }
 
   displayPaymentSheet() async {

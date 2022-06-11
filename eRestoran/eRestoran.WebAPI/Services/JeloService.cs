@@ -64,7 +64,7 @@ namespace eRestoran.WebAPI.Services
 					var dobroOcjenjenaJelaIds = recenzije
 						.Select(e => e.Value)
 						.SelectMany(e => e)
-						.Where(e => e.Ocjena > 3)
+						.Where(e => e.Ocjena >= 3)
 						.Select(e => e.JeloId)
 						.Where(e => !preporucenaJelaIds.Contains(e))
 						.ToList();

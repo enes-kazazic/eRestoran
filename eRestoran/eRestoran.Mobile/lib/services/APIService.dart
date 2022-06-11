@@ -10,7 +10,8 @@ class APIService {
   static String? username;
   static String? password;
   static int? korisnikId;
-  static const String baseRoute = "http://10.0.2.2:5001/api/";
+  static const String baseRoute =
+      "https://aef3-31-176-244-165.eu.ngrok.io/api/";
   String? route;
 
   APIService({this.route});
